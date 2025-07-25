@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shaun de Beer - Full-Stack Developer</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-content">
+        <div class="logo" onclick="showPage('home')">Shaun.dev</div>
+        <ul class="nav-links">
+          <li>
+            <a
+              href="#"
+              onclick="showPage('home'); return false;"
+              class="nav-link active"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="showPage('about'); return false;"
+              class="nav-link"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="showPage('projects'); return false;"
+              class="nav-link"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="showPage('contact'); return false;"
+              class="nav-link"
+              >Contact</a
+            >
+          </li>
+        </ul>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+      </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home-page" class="page-container active">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-image">SD</div>
+          <h1>Shaun de Beer</h1>
+          <p class="subtitle">Full-Stack Developer & IoT Specialist</p>
+          <p class="description">
+            Computing student averaging with distinction, delivering innovative
+            full-stack solutions using C#, Java, and Python. Passionate about
+            bridging academic theory with practical development to drive digital
+            transformation.
+          </p>
+          <div class="cta-buttons">
+            <button class="btn btn-primary" onclick="showPage('projects')">
+              View My Work
+            </button>
+            <button class="btn btn-secondary" onclick="showPage('contact')">
+              Let's Connect
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about-page" class="page-container hidden">
+      <div class="content-container">
+        <h2 class="section-title">About Me</h2>
+
+        <div class="bento-grid">
+          <div class="bento-card">
+            <div class="bento-card-content">
+              <div class="card-icon"><ion-icon name="laptop"></ion-icon></div>
+              <h3 class="card-title">Full-Stack Development</h3>
+              <p class="card-description">
+                Proficient in modern web technologies and backend systems, with
+                expertise in creating scalable applications.
+              </p>
+              <div class="skill-tags">
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-card-content">
+              <div class="card-icon">🎓</div>
+              <h3 class="card-title">Academic Excellence</h3>
+              <p class="card-description">
+                Bachelor of Computing student with distinction average and 240
+                credits achieved at Belgium Campus ITversity.
+              </p>
+              <div class="skill-tags">
+                <span class="skill-tag">Distinction Average</span>
+                <span class="skill-tag">240 Credits</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-card-content">
+              <div class="card-icon">🔧</div>
+              <h3 class="card-title">Technical Skills</h3>
+              <p class="card-description">
+                Comprehensive skill set covering web development, database
+                management, and modern development practices.
+              </p>
+              <div class="skill-tags">
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">Git/GitHub</span>
+                <span class="skill-tag">Agile/Scrum</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-card-content">
+              <div class="card-icon">🎨</div>
+              <h3 class="card-title">Creative Leadership</h3>
+              <p class="card-description">
+                Event coordination and freelance artistic work, including custom
+                wall art for schools and restaurants.
+              </p>
+              <div class="skill-tags">
+                <span class="skill-tag">Event Management</span>
+                <span class="skill-tag">Visual Design</span>
+                <span class="skill-tag">Customer Service</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-card-content">
+              <div class="card-icon">🌍</div>
+              <h3 class="card-title">Languages</h3>
+              <p class="card-description">
+                Multilingual communication skills enabling effective
+                collaboration in diverse environments.
+              </p>
+              <div class="skill-tags">
+                <span class="skill-tag">English (Fluent)</span>
+                <span class="skill-tag">Afrikaans (Fluent)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-card-content">
+              <div class="card-icon">⚡</div>
+              <h3 class="card-title">Core Competencies</h3>
+              <p class="card-description">
+                Strong foundation in problem-solving, team collaboration, and
+                continuous learning mindset.
+              </p>
+              <div class="skill-tags">
+                <span class="skill-tag">Problem Solving</span>
+                <span class="skill-tag">Team Collaboration</span>
+                <span class="skill-tag">Critical Thinking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-title" style="font-size: 2rem; margin-bottom: 2rem">
+          My Journey
+        </h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2022 - 2026</div>
+            <div class="timeline-title">Bachelor of Computing</div>
+            <div class="timeline-location">
+              Belgium Campus ITversity - Pretoria
+            </div>
+            <div class="timeline-description">
+              Currently pursuing my degree with distinction average and 240
+              credits achieved. Focusing on full-stack development, IoT systems,
+              and machine learning applications.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2018 - 2019</div>
+            <div class="timeline-title">IoT Predictive Maintenance System</div>
+            <div class="timeline-location">Belgium Campus Year Project</div>
+            <div class="timeline-description">
+              Developed a comprehensive IoT system for generator monitoring
+              using MQTT, sensor data, and machine learning models with 94%
+              accuracy in anomaly detection.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2024</div>
+            <div class="timeline-title">Family Business Support</div>
+            <div class="timeline-location">Lodge Launch Project</div>
+            <div class="timeline-description">
+              Contributed to successful lodge launch through marketing strategy
+              development and customer service optimization.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2017 - 2024</div>
+            <div class="timeline-title">
+              Event Coordinator & Freelance Artist
+            </div>
+            <div class="timeline-location">Louis Trichardt Area</div>
+            <div class="timeline-description">
+              Organized food court sales events and created custom wall art for
+              3 schools and 1 restaurant, developing project management and
+              creative skills.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2017 - 2021</div>
+            <div class="timeline-title">High School Diploma</div>
+            <div class="timeline-location">
+              Louis Trichardt Secondary School
+            </div>
+            <div class="timeline-description">
+              Completed secondary education with strong performance in
+              mathematics and science subjects, laying the foundation for my
+              technical career.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects Page -->
+    <div id="projects-page" class="page">
+      <div class="content-container">
+        <h2 class="section-title">Featured Projects</h2>
+
+        <div class="projects-grid">
+          <!-- Project 1: IoT Generator Monitoring -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">
+                IoT Generator Monitoring & Predictive Maintenance
+              </h3>
+              <p class="project-description">
+                Comprehensive IoT-based predictive maintenance system for
+                generators using advanced machine learning techniques. The
+                system monitors critical parameters through MQTT protocol,
+                utilizing LSTM neural networks and Autoencoders for anomaly
+                detection and regression forecasting.
+              </p>
+            </div>
+            <div class="project-content">
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">TensorFlow.js</span>
+                <span class="tech-tag">MQTT</span>
+                <span class="tech-tag">LSTM</span>
+                <span class="tech-tag">IoT Sensors</span>
+              </div>
+              <div class="project-stats">
+                <div class="stat-item">
+                  <div class="stat-value">94%</div>
+                  <div class="stat-label">Accuracy</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">40%</div>
+                  <div class="stat-label">Downtime Reduced</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">Real-time</div>
+                  <div class="stat-label">Monitoring</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: E-Commerce Platform -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Full-Stack E-Commerce Platform</h3>
+              <p class="project-description">
+                Modern e-commerce solution built with C# .NET backend and
+                responsive JavaScript frontend. Features include user
+                authentication, payment processing, inventory management, and
+                real-time order tracking with comprehensive admin dashboard.
+              </p>
+            </div>
+            <div class="project-content">
+              <div class="project-tech">
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">.NET Core</span>
+                <span class="tech-tag">SQL Server</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">HTML/CSS</span>
+                <span class="tech-tag">Payment APIs</span>
+              </div>
+              <div class="project-stats">
+                <div class="stat-item">
+                  <div class="stat-value">100+</div>
+                  <div class="stat-label">Products</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">Secure</div>
+                  <div class="stat-label">Payments</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">Mobile</div>
+                  <div class="stat-label">Responsive</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Student Management System -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">
+                University Student Management System
+              </h3>
+              <p class="project-description">
+                Comprehensive Java-based application for managing student
+                records, course enrollment, grade tracking, and academic
+                reporting. Implements Agile/Scrum methodologies with role-based
+                access control for students, faculty, and administrators.
+              </p>
+            </div>
+            <div class="project-content">
+              <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JPA/Hibernate</span>
+                <span class="tech-tag">Maven</span>
+                <span class="tech-tag">JUnit</span>
+              </div>
+              <div class="project-stats">
+                <div class="stat-item">
+                  <div class="stat-value">1000+</div>
+                  <div class="stat-label">Students</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">3</div>
+                  <div class="stat-label">User Roles</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">24/7</div>
+                  <div class="stat-label">Availability</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Data Analytics Dashboard -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Business Analytics Dashboard</h3>
+              <p class="project-description">
+                Python-powered analytics platform that processes large datasets
+                and provides interactive visualizations for business
+                intelligence. Features automated report generation, trend
+                analysis, and predictive modeling for strategic decision-making.
+              </p>
+            </div>
+            <div class="project-content">
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">NumPy</span>
+                <span class="tech-tag">Matplotlib</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">SQLite</span>
+              </div>
+              <div class="project-stats">
+                <div class="stat-item">
+                  <div class="stat-value">10K+</div>
+                  <div class="stat-label">Data Points</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">Real-time</div>
+                  <div class="stat-label">Updates</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">Interactive</div>
+                  <div class="stat-label">Charts</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Mobile Restaurant App -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Restaurant Ordering Mobile App</h3>
+              <p class="project-description">
+                Cross-platform mobile application for restaurant ordering and
+                management. Includes customer ordering interface, kitchen
+                management system, and delivery tracking with push notifications
+                and real-time order status updates.
+              </p>
+            </div>
+            <div class="project-content">
+              <div class="project-tech">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Push Notifications</span>
+                <span class="tech-tag">GPS Tracking</span>
+              </div>
+              <div class="project-stats">
+                <div class="stat-item">
+                  <div class="stat-value">Cross</div>
+                  <div class="stat-label">Platform</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">Live</div>
+                  <div class="stat-label">Tracking</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">Push</div>
+                  <div class="stat-label">Notifications</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Agile Project Management Tool -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Agile Project Management Platform</h3>
+              <p class="project-description">
+                Comprehensive project management solution implementing Agile and
+                Scrum methodologies. Features sprint planning, backlog
+                management, burndown charts, team collaboration tools, and
+                integration with Git repositories for seamless development
+                workflow.
+              </p>
+            </div>
+            <div class="project-content">
+              <div class="project-tech">
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">ASP.NET</span>
+                <span class="tech-tag">SignalR</span>
+                <span class="tech-tag">Git API</span>
+                <span class="tech-tag">Chart.js</span>
+                <span class="tech-tag">PostgreSQL</span>
+              </div>
+              <div class="project-stats">
+                <div class="stat-item">
+                  <div class="stat-value">Scrum</div>
+                  <div class="stat-label">Framework</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">Git</div>
+                  <div class="stat-label">Integration</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">Team</div>
+                  <div class="stat-label">Collaboration</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact-page" class="page">
+      <div class="content-container">
+        <h2 class="section-title">Let's Build Something Amazing</h2>
+        <p
+          style="
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            text-align: center;
+          "
+        >
+          Ready to drive digital transformation? I'm passionate about creating
+          innovative solutions that make a real impact. Let's connect and
+          discuss your next project.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value">+27 82 050 5674</div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">
+              <a href="mailto:debeershaun18@gmail.com"
+                >debeershaun18@gmail.com</a
+              >
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Akasia, Pretoria, South Africa</div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">💼</div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value">
+              <a href="https://www.linkedin.com/in/shaundebeer" target="_blank"
+                >linkedin.com/in/shaundebeer</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem">
+          <h3 style="color: var(--text-primary); margin-bottom: 1rem">
+            Looking for a dedicated developer?
+          </h3>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem">
+            I'm currently seeking opportunities to contribute to innovative
+            projects and grow with a forward-thinking team.
+          </p>
+          <div class="cta-buttons">
+            <a href="mailto:debeershaun18@gmail.com" class="btn btn-primary"
+              >Send Email</a
+            >
+            <a
+              href="https://www.linkedin.com/in/shaundebeer"
+              target="_blank"
+              class="btn btn-secondary"
+              >Connect on LinkedIn</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terminal Easter Egg -->
+    <div class="terminal" id="terminal">
+      <div class="terminal-header">Shaun's Terminal - Press ESC to close</div>
+      <div class="terminal-body" id="terminal-body">
+        <div class="terminal-line">
+          Welcome to Shaun's interactive terminal!
+        </div>
+        <div class="terminal-line">Type 'help' for available commands.</div>
+        <div class="terminal-line">
+          shaun@portfolio:~$ <span class="cursor">|</span>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>
