@@ -1,6 +1,3 @@
-// Icons import
-src = "https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js";
-
 // Page Management
 function showPage(pageId) {
   // Hide all pages
@@ -28,6 +25,28 @@ function showPage(pageId) {
 
   // Scroll to top
   window.scrollTo(0, 0);
+}
+
+// Year Tab Switching Function for Education Page
+function showYear(year) {
+  // Hide all year content
+  document.querySelectorAll(".year-content").forEach((content) => {
+    content.classList.remove("active");
+  });
+
+  // Remove active class from all tabs
+  document.querySelectorAll(".year-tab").forEach((tab) => {
+    tab.classList.remove("active");
+  });
+
+  // Show selected year content
+  const yearContent = document.getElementById(`year-${year}`);
+  if (yearContent) {
+    yearContent.classList.add("active");
+  }
+
+  // Add active class to clicked tab
+  event.target.classList.add("active");
 }
 
 // Particle System
@@ -200,7 +219,7 @@ function showTerminal() {
     "> Specialization: Full-Stack Development & IoT Solutions",
     "",
     "Fun fact: This terminal was activated by the Konami Code!",
-    "Available commands: help, contact, projects, skills, about",
+    "Available commands: help, contact, projects, skills, about, education",
     "",
   ];
 
@@ -263,7 +282,7 @@ function createTerminalInput() {
 function processCommand(command) {
   switch (command) {
     case "help":
-      return "Available commands:<br>• help - Show this help<br>• contact - Show contact information<br>• projects - List my projects<br>• skills - Show technical skills<br>• about - About me<br>• clear - Clear terminal<br>• home - Go to home page<br>• page [name] - Navigate to page";
+      return "Available commands:<br>• help - Show this help<br>• contact - Show contact information<br>• projects - List my projects<br>• skills - Show technical skills<br>• about - About me<br>• education - Academic journey<br>• clear - Clear terminal<br>• home - Go to home page<br>• page [name] - Navigate to page";
     case "contact":
       return "Contact Information:<br>📧 debeershaun18@gmail.com<br>📱 +27 82 050 5674<br>💼 linkedin.com/in/shaundebeer<br>📍 Akasia, Pretoria, South Africa";
     case "projects":
@@ -272,6 +291,8 @@ function processCommand(command) {
       return "Technical Skills:<br>💻 Languages: C#, Java, Python, JavaScript<br>🗄️ Database: SQL & Database Management<br>🌐 Web: HTML, CSS, JavaScript<br>📊 Project Management: Agile, Scrum<br>🔧 Tools: Git/GitHub, Visual Studio";
     case "about":
       return "About Shaun de Beer:<br>🎓 Bachelor of Computing student (Belgium Campus ITversity)<br>⭐ Averaging with distinction - 240 credits achieved<br>🚀 Passionate about full-stack development and IoT<br>🎯 Goal: Drive digital transformation at forward-thinking companies";
+    case "education":
+      return "Academic Journey:<br>🎓 Bachelor of Computing - Belgium Campus ITversity<br>📈 66.5% Weighted Average<br>📚 240 Credits Achieved<br>🏆 22 Distinctions<br>🔬 Currently: Machine Learning & Advanced Development";
     case "home":
       showPage("home");
       return "Navigating to home page...";
@@ -282,11 +303,15 @@ function processCommand(command) {
     default:
       if (command.startsWith("page ")) {
         const pageName = command.split(" ")[1];
-        if (["home", "about", "projects", "contact"].includes(pageName)) {
+        if (
+          ["home", "about", "education", "projects", "contact"].includes(
+            pageName
+          )
+        ) {
           showPage(pageName);
           return `Navigating to ${pageName} page...`;
         } else {
-          return `Page '${pageName}' not found. Available pages: home, about, projects, contact`;
+          return `Page '${pageName}' not found. Available pages: home, about, education, projects, contact`;
         }
       }
       return command
@@ -326,7 +351,9 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for scroll animations
 document
-  .querySelectorAll(".bento-card, .project-card, .contact-item, .timeline-item")
+  .querySelectorAll(
+    ".bento-card, .project-card, .contact-item, .timeline-item, .subject-card, .achievement-card, .education-header"
+  )
   .forEach((el) => {
     el.style.opacity = "0";
     el.style.transform = "translateY(30px)";
@@ -420,24 +447,64 @@ window.addEventListener("load", () => {
     const originalText = subtitle.textContent;
     typeWriter(subtitle, originalText, 80);
   }
+
+  // Initialize education page enhancements
+  initializeEducationPage();
 });
+
+// Education page specific initialization
+function initializeEducationPage() {
+  // Add grade color coding
+  document.querySelectorAll(".subject-mark").forEach((mark) => {
+    const grade = parseInt(mark.textContent);
+    if (grade >= 75) {
+      mark.style.color = "#4CAF50"; // Green for distinction
+    } else if (grade >= 60) {
+      mark.style.color = "var(--accent-primary)"; // Normal pass
+    } else if (grade >= 50) {
+      mark.style.color = "#FF9800"; // Orange for low pass
+    } else {
+      mark.style.color = "#F44336"; // Red for low marks
+    }
+  });
+
+  // Add hover effects to subject cards
+  document.querySelectorAll(".subject-card").forEach((card) => {
+    card.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-3px) scale(1.02)";
+      this.style.boxShadow = "0 15px 40px rgba(166, 124, 106, 0.2)";
+    });
+
+    card.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0) scale(1)";
+      this.style.boxShadow = "none";
+    });
+  });
+}
 
 // Console Easter egg
 console.log(`
-🚀 Welcome to Shaun's Multi-Page Portfolio!
+🚀 Welcome to Shaun's Enhanced Portfolio!
 
 Hey there, fellow developer! 👋
 
 This portfolio now features:
 • Multi-page navigation system
 • 6 diverse project showcases
+• Comprehensive education section
 • Interactive terminal (Konami code!)
 • Smooth page transitions
 • Mobile-responsive design
 
+Education Highlights:
+• 22 Distinctions achieved
+• 66.5% Weighted Average
+• 240 Credits completed
+• Interactive year tabs
+
 Try the terminal commands:
-• 'page projects' - Navigate to projects
-• 'page about' - Go to about page
+• 'page education' - Navigate to education
+• 'education' - View academic summary
 • 'help' - See all commands
 
 Let's connect: debeershaun18@gmail.com
@@ -450,7 +517,7 @@ if ("performance" in window) {
       const perfData = performance.getEntriesByType("navigation")[0];
       if (perfData.loadEventEnd - perfData.loadEventStart < 1200) {
         console.log(
-          "⚡ Multi-page site loaded in under 1.2s - Performance goal achieved!"
+          "⚡ Enhanced portfolio loaded in under 1.2s - Performance goal achieved!"
         );
       }
     }, 0);

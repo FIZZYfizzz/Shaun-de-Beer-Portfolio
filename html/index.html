@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shaun de Beer - Full-Stack Developer</title>
+    <title>Shaun de Beer | Portfolio</title>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
@@ -12,7 +12,7 @@
     <!-- Navigation -->
     <nav class="nav">
       <div class="nav-content">
-        <div class="logo" onclick="showPage('home')">Shaun.dev</div>
+        <div class="logo" onclick="showPage('home')">Shaun.portfolio</div>
         <ul class="nav-links">
           <li>
             <a
@@ -28,6 +28,14 @@
               onclick="showPage('about'); return false;"
               class="nav-link"
               >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="showPage('education'); return false;"
+              class="nav-link"
+              >Education</a
             >
           </li>
           <li>
@@ -55,14 +63,19 @@
     <div id="home-page" class="page-container active">
       <section class="hero">
         <div class="hero-content">
-          <div class="hero-image">SD</div>
+          <div class="hero-image">
+            <img src="../Images\ME.jpg" alt="intentional-smile" />
+          </div>
           <h1>Shaun de Beer</h1>
-          <p class="subtitle">Full-Stack Developer & IoT Specialist</p>
+          <p class="subtitle">Bachelor of Computing | Software Engineering</p>
           <p class="description">
-            Computing student averaging with distinction, delivering innovative
-            full-stack solutions using C#, Java, and Python. Passionate about
-            bridging academic theory with practical development to drive digital
-            transformation.
+            A dedicated student with a consistent distinction-level performance,
+            passionate about transforming theoretical knowledge into robust,
+            real-world solutions. Skilled in full-stack development and driven
+            by the challenges of machine learning, database architecture, and
+            scalable system design. Committed to leveraging technology not just
+            to solve problems, but to redefine possibilities. Where logic meets
+            creativity—building the future, one algorithm at a time.
           </p>
           <div class="cta-buttons">
             <button class="btn btn-primary" onclick="showPage('projects')">
@@ -84,11 +97,13 @@
         <div class="bento-grid">
           <div class="bento-card">
             <div class="bento-card-content">
-              <div class="card-icon"><ion-icon name="laptop"></ion-icon></div>
+              <div class="card-icon"><ion-icon name="desktop"></ion-icon></div>
               <h3 class="card-title">Full-Stack Development</h3>
               <p class="card-description">
-                Proficient in modern web technologies and backend systems, with
-                expertise in creating scalable applications.
+                Passionate with a strong foundation in both frontend and backend
+                technologies. My expertise spans web development, database
+                management, and modern programming practices, allowing me to
+                build scalable and efficient applications.
               </p>
               <div class="skill-tags">
                 <span class="skill-tag">C#</span>
@@ -101,30 +116,32 @@
 
           <div class="bento-card">
             <div class="bento-card-content">
-              <div class="card-icon">🎓</div>
+              <div class="card-icon"><ion-icon name="school"></ion-icon></div>
               <h3 class="card-title">Academic Excellence</h3>
               <p class="card-description">
-                Bachelor of Computing student with distinction average and 240
-                credits achieved at Belgium Campus ITversity.
+                Currently pursuing a Bachelor of Computing at Belgium Campus
+                ITversity. I have completed 268 credits with a weighted average
+                of 72%.
               </p>
               <div class="skill-tags">
-                <span class="skill-tag">Distinction Average</span>
-                <span class="skill-tag">240 Credits</span>
+                <span class="skill-tag">Distinctions in 24 modules</span>
               </div>
             </div>
           </div>
 
           <div class="bento-card">
             <div class="bento-card-content">
-              <div class="card-icon">🔧</div>
+              <div class="card-icon"><ion-icon name="build"></ion-icon></div>
               <h3 class="card-title">Technical Skills</h3>
               <p class="card-description">
                 Comprehensive skill set covering web development, database
-                management, and modern development practices.
+                management, and programming. Utilizing modern development
+                practices and tools.
               </p>
               <div class="skill-tags">
-                <span class="skill-tag">SQL</span>
                 <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">JSP/Servlets</span>
                 <span class="skill-tag">Git/GitHub</span>
                 <span class="skill-tag">Agile/Scrum</span>
               </div>
@@ -133,14 +150,17 @@
 
           <div class="bento-card">
             <div class="bento-card-content">
-              <div class="card-icon">🎨</div>
+              <div class="card-icon">
+                <ion-icon name="color-palette"></ion-icon>
+              </div>
               <h3 class="card-title">Creative Leadership</h3>
               <p class="card-description">
-                Event coordination and freelance artistic work, including custom
-                wall art for schools and restaurants.
+                Combines technical skills with creative problem-solving,
+                demonstrated through Innovation and Leadership courses and
+                freelance projects. Organized events and delivered custom
+                designs for clients.
               </p>
               <div class="skill-tags">
-                <span class="skill-tag">Event Management</span>
                 <span class="skill-tag">Visual Design</span>
                 <span class="skill-tag">Customer Service</span>
               </div>
@@ -149,7 +169,7 @@
 
           <div class="bento-card">
             <div class="bento-card-content">
-              <div class="card-icon">🌍</div>
+              <div class="card-icon"><ion-icon name="globe"></ion-icon></div>
               <h3 class="card-title">Languages</h3>
               <p class="card-description">
                 Multilingual communication skills enabling effective
@@ -164,7 +184,7 @@
 
           <div class="bento-card">
             <div class="bento-card-content">
-              <div class="card-icon">⚡</div>
+              <div class="card-icon"><ion-icon name="ribbon"></ion-icon></div>
               <h3 class="card-title">Core Competencies</h3>
               <p class="card-description">
                 Strong foundation in problem-solving, team collaboration, and
@@ -240,6 +260,610 @@
               Completed secondary education with strong performance in
               mathematics and science subjects, laying the foundation for my
               technical career.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education Page -->
+    <div id="education-page" class="page-container hidden">
+      <div class="content-container">
+        <h2 class="section-title">Academic Journey</h2>
+
+        <!-- Education Header -->
+        <div class="education-header">
+          <h3 class="degree-title">Bachelor of Computing</h3>
+          <p class="institution">
+            Belgium Campus ITversity - Pretoria, South Africa
+          </p>
+          <p class="degree-period">2023 - 2026 (Expected)</p>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem">
+            Student ID: 601245 | Registration: 2003/HE08/001
+          </p>
+
+          <div class="degree-stats">
+            <div class="stat-card">
+              <span class="stat-number">66.5%</span>
+              <span class="stat-label">Weighted Average</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">240</span>
+              <span class="stat-label">Credits Achieved</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">27</span>
+              <span class="stat-label">Subjects Passed</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">22</span>
+              <span class="stat-label">Distinctions</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic Progress -->
+        <div class="academic-progress">
+          <div class="progress-header">
+            <h3 class="progress-subtitle">Academic Progress by Year</h3>
+            <p style="color: var(--text-secondary)">
+              Click on a year to view detailed coursework and achievements
+            </p>
+          </div>
+
+          <div class="year-tabs">
+            <button class="year-tab active" onclick="showYear('2023')">
+              2023
+            </button>
+            <button class="year-tab" onclick="showYear('2024')">2024</button>
+            <button class="year-tab" onclick="showYear('2025')">2025</button>
+          </div>
+
+          <!-- 2023 Content -->
+          <div id="year-2023" class="year-content active">
+            <div class="subjects-grid">
+              <div class="subject-card">
+                <div class="subject-code">ACW181</div>
+                <div class="subject-header">
+                  <div class="subject-name">Academic Writing 181</div>
+                  <div class="subject-mark">76</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">4 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">COA181</div>
+                <div class="subject-header">
+                  <div class="subject-name">Computer Architecture 181</div>
+                  <div class="subject-mark">88</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">4 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">DBD181</div>
+                <div class="subject-header">
+                  <div class="subject-name">Database Development 181</div>
+                  <div class="subject-mark">60</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">12 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">ENT181</div>
+                <div class="subject-header">
+                  <div class="subject-name">Entrepreneurship 181</div>
+                  <div class="subject-mark">86</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">7 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">INF181</div>
+                <div class="subject-header">
+                  <div class="subject-name">Information Systems 181</div>
+                  <div class="subject-mark">60</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">12 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">INL101</div>
+                <div class="subject-header">
+                  <div class="subject-name">Innovation and Leadership 101</div>
+                  <div class="subject-mark">81</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">5 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">INL102</div>
+                <div class="subject-header">
+                  <div class="subject-name">Innovation and Leadership 102</div>
+                  <div class="subject-mark">81</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">5 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">LPR181</div>
+                <div class="subject-header">
+                  <div class="subject-name">Linear Programming 181</div>
+                  <div class="subject-mark">74</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">11 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">MAT181</div>
+                <div class="subject-header">
+                  <div class="subject-name">Mathematics 181</div>
+                  <div class="subject-mark">80</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">11 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">NWD181</div>
+                <div class="subject-header">
+                  <div class="subject-name">Network Development 181</div>
+                  <div class="subject-mark">81</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">8 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">PRG181</div>
+                <div class="subject-header">
+                  <div class="subject-name">Programming 181</div>
+                  <div class="subject-mark">87</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">16 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">PRG182</div>
+                <div class="subject-header">
+                  <div class="subject-name">Programming 182</div>
+                  <div class="subject-mark">76</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">9 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">STA181</div>
+                <div class="subject-header">
+                  <div class="subject-name">Statistics 181</div>
+                  <div class="subject-mark">77</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">4 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">WPR181</div>
+                <div class="subject-header">
+                  <div class="subject-name">Web Programming 181</div>
+                  <div class="subject-mark">71</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">12 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="year-summary">
+              <h4 class="summary-title">2023 Academic Summary</h4>
+              <div class="summary-stats">
+                <div class="summary-stat">
+                  <div class="summary-stat-value">14</div>
+                  <div class="summary-stat-label">Subjects</div>
+                </div>
+                <div class="summary-stat">
+                  <div class="summary-stat-value">118</div>
+                  <div class="summary-stat-label">Credits</div>
+                </div>
+                <div class="summary-stat">
+                  <div class="summary-stat-value">76.4%</div>
+                  <div class="summary-stat-label">Average</div>
+                </div>
+                <div class="summary-stat">
+                  <div class="summary-stat-value">100%</div>
+                  <div class="summary-stat-label">Pass Rate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2024 Content -->
+          <div id="year-2024" class="year-content">
+            <div class="subjects-grid">
+              <div class="subject-card">
+                <div class="subject-code">DBD281</div>
+                <div class="subject-header">
+                  <div class="subject-name">Database Development 281</div>
+                  <div class="subject-mark">85</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">15 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">INF281</div>
+                <div class="subject-header">
+                  <div class="subject-name">Information Systems 281</div>
+                  <div class="subject-mark">80</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">12 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">INL201</div>
+                <div class="subject-header">
+                  <div class="subject-name">Innovation and Leadership 201</div>
+                  <div class="subject-mark">72</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">5 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">INL202</div>
+                <div class="subject-header">
+                  <div class="subject-name">Innovation and Leadership 202</div>
+                  <div class="subject-mark">72</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">5 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">IOT281</div>
+                <div class="subject-header">
+                  <div class="subject-name">Internet of Things 281</div>
+                  <div class="subject-mark">63</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">8 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">LPR281</div>
+                <div class="subject-header">
+                  <div class="subject-name">Linear Programming 281</div>
+                  <div class="subject-mark">59</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">11 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">MAT281</div>
+                <div class="subject-header">
+                  <div class="subject-name">Mathematics 281</div>
+                  <div class="subject-mark">78</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">11 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">PMM281</div>
+                <div class="subject-header">
+                  <div class="subject-name">Project Management 281</div>
+                  <div class="subject-mark">80</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">7 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">PRG281</div>
+                <div class="subject-header">
+                  <div class="subject-name">Programming 281</div>
+                  <div class="subject-mark">82</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">13 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">PRG282</div>
+                <div class="subject-header">
+                  <div class="subject-name">Programming 282</div>
+                  <div class="subject-mark">65</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">8 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">SAD281</div>
+                <div class="subject-header">
+                  <div class="subject-name">Software Analysis & Design 281</div>
+                  <div class="subject-mark">71</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">9 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">STA281</div>
+                <div class="subject-header">
+                  <div class="subject-name">Statistics 281</div>
+                  <div class="subject-mark">82</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">4 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">WPR281</div>
+                <div class="subject-header">
+                  <div class="subject-name">Web Programming 281</div>
+                  <div class="subject-mark">77</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">12 Credits</div>
+                  <div class="subject-status status-pass">Pass</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="year-summary">
+              <h4 class="summary-title">2024 Academic Summary</h4>
+              <div class="summary-stats">
+                <div class="summary-stat">
+                  <div class="summary-stat-value">13</div>
+                  <div class="summary-stat-label">Subjects</div>
+                </div>
+                <div class="summary-stat">
+                  <div class="summary-stat-value">122</div>
+                  <div class="summary-stat-label">Credits</div>
+                </div>
+                <div class="summary-stat">
+                  <div class="summary-stat-value">73.8%</div>
+                  <div class="summary-stat-label">Average</div>
+                </div>
+                <div class="summary-stat">
+                  <div class="summary-stat-value">100%</div>
+                  <div class="summary-stat-label">Pass Rate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2025 Content -->
+          <div id="year-2025" class="year-content">
+            <div class="subjects-grid">
+              <div class="subject-card">
+                <div class="subject-code">DBD381</div>
+                <div class="subject-header">
+                  <div class="subject-name">Database Development 381</div>
+                  <div class="subject-mark">23</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">7 Credits</div>
+                  <div class="subject-status status-pending">Exam Pending</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">MLG381</div>
+                <div class="subject-header">
+                  <div class="subject-name">Machine Learning 381</div>
+                  <div class="subject-mark">24</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">7 Credits</div>
+                  <div class="subject-status status-pending">Exam Pending</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">MLG382</div>
+                <div class="subject-header">
+                  <div class="subject-name">Machine Learning 382</div>
+                  <div class="subject-mark">23</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">11 Credits</div>
+                  <div class="subject-status status-pending">Exam Pending</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">PMM381</div>
+                <div class="subject-header">
+                  <div class="subject-name">Project Management 381</div>
+                  <div class="subject-mark">24</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">7 Credits</div>
+                  <div class="subject-status status-pending">Exam Pending</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">RSH381</div>
+                <div class="subject-header">
+                  <div class="subject-name">Research Methods 381</div>
+                  <div class="subject-mark">19</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">7 Credits</div>
+                  <div class="subject-status status-progress">In Progress</div>
+                </div>
+              </div>
+
+              <div class="subject-card">
+                <div class="subject-code">WPR381</div>
+                <div class="subject-header">
+                  <div class="subject-name">Web Programming 381</div>
+                  <div class="subject-mark">20</div>
+                </div>
+                <div class="subject-details">
+                  <div class="subject-credits">9 Credits</div>
+                  <div class="subject-status status-pending">Exam Pending</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="year-summary">
+              <h4 class="summary-title">2025 Academic Summary (Current)</h4>
+              <div class="summary-stats">
+                <div class="summary-stat">
+                  <div class="summary-stat-value">6</div>
+                  <div class="summary-stat-label">Subjects</div>
+                </div>
+                <div class="summary-stat">
+                  <div class="summary-stat-value">48</div>
+                  <div class="summary-stat-label">Credits</div>
+                </div>
+                <div class="summary-stat">
+                  <div class="summary-stat-value">22.2%</div>
+                  <div class="summary-stat-label">Current Avg</div>
+                </div>
+                <div class="summary-stat">
+                  <div class="summary-stat-value">5</div>
+                  <div class="summary-stat-label">Pending</div>
+                </div>
+              </div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 1rem;
+                  text-align: center;
+                  font-style: italic;
+                "
+              >
+                Note: Current marks represent ongoing coursework. Final grades
+                pending completion of exams and assignments.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievements Section -->
+        <div class="achievements-section">
+          <h3 class="achievements-title">Academic Achievements</h3>
+          <div class="achievements-grid">
+            <div class="achievement-card">
+              <div class="achievement-icon">🏆</div>
+              <div class="achievement-title">22 Distinctions</div>
+              <div class="achievement-description">
+                Achieved distinction level (75%+) in 22 subjects, demonstrating
+                consistent excellence
+              </div>
+            </div>
+
+            <div class="achievement-card">
+              <div class="achievement-icon">📈</div>
+              <div class="achievement-title">240 Credits Earned</div>
+              <div class="achievement-description">
+                Successfully completed 240 credits across diverse computing
+                disciplines
+              </div>
+            </div>
+
+            <div class="achievement-card">
+              <div class="achievement-icon">💻</div>
+              <div class="achievement-title">Perfect Pass Rate</div>
+              <div class="achievement-description">
+                100% pass rate with no failed subjects across all completed
+                coursework
+              </div>
+            </div>
+
+            <div class="achievement-card">
+              <div class="achievement-icon">🎯</div>
+              <div class="achievement-title">Specialized Focus</div>
+              <div class="achievement-description">
+                Advanced study in Machine Learning, IoT, and Full-Stack
+                Development
+              </div>
+            </div>
+
+            <div class="achievement-card">
+              <div class="achievement-icon">📊</div>
+              <div class="achievement-title">Top Performance</div>
+              <div class="achievement-description">
+                Highest marks in Programming (87%), Computer Architecture (88%),
+                and Database Development (85%)
+              </div>
+            </div>
+
+            <div class="achievement-card">
+              <div class="achievement-icon">🔬</div>
+              <div class="achievement-title">Research Excellence</div>
+              <div class="achievement-description">
+                Currently pursuing advanced research methods and innovative
+                project development
+              </div>
             </div>
           </div>
         </div>
@@ -572,6 +1196,15 @@
       </div>
     </div>
 
+    <!-- Icons import -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
     <script src="../js/main.js"></script>
   </body>
 </html>
