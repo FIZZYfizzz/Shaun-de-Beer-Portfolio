@@ -16,12 +16,15 @@
 [data-theme="light"] {
   --bg-primary: #f4f3ee;
   --bg-secondary: #bcb8b1;
-  --text-primary: #7f5539;
-  --text-secondary: #9c6644;
-  --accent-primary: #a5a58d;
-  --accent-glow: rgba(165, 165, 141, 0.3);
-  --card-bg: rgba(237, 224, 212, 0.3);
+  --text-primary: rgba(0, 0, 0, 0.92);
+  --text-secondary: rgba(0, 0, 0, 0.7);
+  --accent-primary: #593932; /* Inverted Mocha Mousse */
+  --accent-glow: rgba(89, 57, 50, 0.3);
+  --card-bg: rgba(0, 0, 0, 0.05);
   --border-color: rgba(0, 0, 0, 0.1);
+  --accent: #593932; /* fallback or your preferred inverted accent */
+  --mocha: #45372f; /* inverted or adjusted version of mocha */
+  --bezier: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 * {
@@ -562,7 +565,7 @@ body {
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: 3rem;
 }
 

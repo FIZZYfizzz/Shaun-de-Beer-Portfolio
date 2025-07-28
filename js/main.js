@@ -157,7 +157,7 @@ function toggleTheme() {
     localStorage.setItem("theme", "dark");
   } else {
     body.setAttribute("data-theme", "light");
-    button.textContent = "☀️ Light";
+    button.textContent = "☀ Light";
     localStorage.setItem("theme", "light");
   }
 }
@@ -166,13 +166,13 @@ function toggleTheme() {
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "light") {
   document.body.setAttribute("data-theme", "light");
-  document.querySelector(".theme-toggle").textContent = "☀️ Light";
+  document.querySelector(".theme-toggle").textContent = "☀ Light";
 } else if (
   window.matchMedia &&
   window.matchMedia("(prefers-color-scheme: light)").matches
 ) {
   document.body.setAttribute("data-theme", "light");
-  document.querySelector(".theme-toggle").textContent = "☀️ Light";
+  document.querySelector(".theme-toggle").textContent = "☀ Light";
 }
 
 // Terminal Easter Egg (Konami Code: ↑↑↓↓←→←→BA)
