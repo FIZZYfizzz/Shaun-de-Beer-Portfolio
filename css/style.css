@@ -1117,16 +1117,21 @@ body {
 }
 
 @media (max-width: 768px) {
-  .fact-card .fact-front h4,
-  .fact-card .fact-back p {
-    font-size: 0.85rem;
-    line-height: 1.3;
+  .mobile-menu-toggle {
+    width: 40px;
+    height: 40px;
+    top: 1.2rem;
+    right: 1.2rem;
+    font-size: 1.5rem;
+    padding: 0;
   }
-  .fact-card .fact-front {
-    font-size: 0.85rem;
+  .mobile-menu-toggle span {
+    height: 3px;
+    margin: 6px 0;
   }
-  .fact-card .fact-back {
-    font-size: 0.85rem;
+  .theme-toggle {
+    right: 4.5rem; /* Ensures space between theme toggle and burger */
+    top: 1.2rem;
   }
 }
 
@@ -1811,6 +1816,19 @@ body {
   .hero-image {
     width: 120px;
     height: 120px;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Remove any overflow: hidden or large negative margins */
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   .hero h1 {
