@@ -9,47 +9,62 @@
   <body>
     <canvas id="particle-canvas"></canvas>
 
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <!-- Navigation -->
     <nav class="nav">
       <div class="nav-content">
         <div class="logo" onclick="showPage('home')">Shaun.portfolio</div>
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
           <li>
             <a
-              href="#"
-              onclick="showPage('home'); return false;"
+              href="javascript:void(0)"
+              onclick="showPage('home'); closeMobileMenu();"
               class="nav-link active"
               >Home</a
             >
           </li>
           <li>
             <a
-              href="#"
-              onclick="showPage('about'); return false;"
+              href="javascript:void(0)"
+              onclick="showPage('about'); closeMobileMenu();"
               class="nav-link"
               >About</a
             >
           </li>
           <li>
             <a
-              href="#"
-              onclick="showPage('education'); return false;"
+              href="javascript:void(0)"
+              onclick="showPage('education'); closeMobileMenu();"
               class="nav-link"
               >Education</a
             >
           </li>
           <li>
             <a
-              href="#"
-              onclick="showPage('projects'); return false;"
+              href="javascript:void(0)"
+              onclick="showPage('projects'); closeMobileMenu();"
               class="nav-link"
               >Projects</a
             >
           </li>
           <li>
             <a
-              href="#"
-              onclick="showPage('contact'); return false;"
+              href="javascript:void(0)"
+              onclick="showPage('hobbies'); closeMobileMenu();"
+              class="nav-link"
+              >Hobbies</a
+            >
+          </li>
+          <li>
+            <a
+              href="javascript:void(0)"
+              onclick="showPage('contact'); closeMobileMenu();"
               class="nav-link"
               >Contact</a
             >
@@ -724,7 +739,7 @@
                 </div>
               </div>
 
-              <div class="subject-card">
+             <div class="subject-card">
                 <div class="subject-code">MLG382</div>
                 <div class="subject-header">
                   <div class="subject-name">Machine Learning 382</div>
@@ -844,16 +859,495 @@
                 coursework
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-          
+    <!-- Hobbies & Interests Page -->
+    <div id="hobbies-page" class="page-container hidden">
+      <div class="content-container">
+        <h2 class="section-title">Hobbies & Interests</h2>
+        <p class="page-subtitle">
+          Beyond code and algorithms, discover the passions that fuel my
+          creativity and shape my perspective on life.
+        </p>
+
+        <!-- Interactive Hobby Categories -->
+        <div class="hobby-categories">
+          <div class="category-tabs">
+            <button
+              class="category-tab active"
+              onclick="showHobbyCategory('creative')"
+            >
+              <ion-icon name="brush"></ion-icon>
+              <span class="tab-text">Creative Arts</span>
+            </button>
+            <button class="category-tab" onclick="showHobbyCategory('outdoor')">
+              <ion-icon name="leaf"></ion-icon>
+              <span class="tab-text">Outdoor Adventures</span>
+            </button>
+            <button class="category-tab" onclick="showHobbyCategory('tech')">
+              <ion-icon name="game-controller"></ion-icon>
+              <span class="tab-text">Tech & Gaming</span>
+            </button>
+            <button
+              class="category-tab"
+              onclick="showHobbyCategory('learning')"
+            >
+              <ion-icon name="library"></ion-icon>
+              <span class="tab-text">Reading & Growth</span>
+            </button>
+          </div>
+
+          <!-- Creative Arts Category -->
+          <div id="creative-category" class="hobby-category active">
+            <div class="hobby-showcase">
+              <div class="main-hobby-card">
+                <div class="hobby-visual">
+                  <div class="paint-palette">
+                    <div class="paint-blob" style="background: #ff6b6b"></div>
+                    <div class="paint-blob" style="background: #4ecdc4"></div>
+                    <div class="paint-blob" style="background: #45b7d1"></div>
+                    <div class="paint-blob" style="background: #f9ca24"></div>
+                    <div class="paint-blob" style="background: #6c5ce7"></div>
+                  </div>
+                </div>
+                <div class="hobby-content">
+                  <h3 class="hobby-title">Wall Art & Custom Designs</h3>
+                  <p class="hobby-description">
+                    My passion for art was nurtured by my mother, who first
+                    introduced me to the transformative power of creativity.
+                    Together, we've turned blank walls into vibrant stories by
+                    creating custom murals for 3 schools and 1 restaurant,
+                    bringing spaces to life with hand-painted designs that
+                    reflect each location's unique character.
+                  </p>
+                  <div class="hobby-stats">
+                    <div class="stat">
+                      <span class="stat-number">4+</span>
+                      <span class="stat-label">Commissioned Projects</span>
+                    </div>
+                    <div class="stat">
+                      <span class="stat-number">4</span>
+                      <span class="stat-label">Years Experience</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hobby-grid">
+                <div class="hobby-card">
+                  <div class="hobby-icon">
+                    <ion-icon name="camera"></ion-icon>
+                  </div>
+                  <h4>Digital Photography</h4>
+                  <p>
+                    Capturing life's moments through the lens, specializing in
+                    landscape and portrait photography.
+                  </p>
+                </div>
+
+                <div class="hobby-card">
+                  <div class="hobby-icon">
+                    <ion-icon name="color-wand"></ion-icon>
+                  </div>
+                  <h4>Drawing & Painting</h4>
+                  <p>
+                    Expressing creativity through traditional and digital
+                    mediums. From pencil sketches and acrylic paintings to
+                    exploring digital illustration.
+                  </p>
+                </div>
+
+                <div class="hobby-card">
+                  <div class="hobby-icon">
+                    <ion-icon name="musical-notes"></ion-icon>
+                  </div>
+                  <h4>Music</h4>
+                  <p>
+                    I've played both acoustic and electric guitar for a long
+                    time, and I'm also learning how to play the piano. I like to
+                    make covers and original versions of favorite songs.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Outdoor Adventures Category -->
+          <div id="outdoor-category" class="hobby-category">
+            <div class="hobby-showcase">
+              <div class="main-hobby-card">
+                <div class="hobby-visual">
+                  <div class="nature-scene">
+                    <div class="mountain"></div>
+                    <div class="sun"></div>
+                    <div class="clouds"></div>
+                  </div>
+                </div>
+                <div class="hobby-content">
+                  <h3 class="hobby-title">Nature Photography & Cycling</h3>
+                  <p class="hobby-description">
+                    South Africa's diverse landscapes provide endless
+                    inspiration. From the Drakensberg mountains to the bushveld
+                    of Limpopo, I explore nature with my camera, documenting
+                    wildlife and scenic vistas while staying active through
+                    cycling and outdoor adventures.
+                  </p>
+                  <div class="hobby-stats">
+                    <div class="stat">
+                      <span class="stat-number">50+</span>
+                      <span class="stat-label">Trails Completed</span>
+                    </div>
+                    <div class="stat">
+                      <span class="stat-number">100+</span>
+                      <span class="stat-label">Photos Captured</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hobby-grid">
+                <div class="hobby-card">
+                  <div class="hobby-icon">
+                    <ion-icon name="fitness"></ion-icon>
+                  </div>
+                  <h4>Rock Climbing</h4>
+                  <p>
+                    Challenge myself with indoor and outdoor climbing, building
+                    both physical and mental strength.
+                  </p>
+                </div>
+
+                <div class="hobby-card">
+                  <div class="hobby-icon">
+                    <ion-icon name="bicycle"></ion-icon>
+                  </div>
+                  <h4>Mountain Biking</h4>
+                  <p>
+                    Exploring off-road trails around South Africa, combining
+                    fitness with adventure and scenic routes.
+                  </p>
+                </div>
+
+                <div class="hobby-card">
+                  <div class="hobby-icon">
+                    <ion-icon name="telescope"></ion-icon>
+                  </div>
+                  <h4>Stargazing</h4>
+                  <p>
+                    Finding peace under South Africa's clear night skies,
+                    observing constellations and celestial events.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tech & Gaming Category -->
+          <div id="tech-category" class="hobby-category">
+            <div class="hobby-showcase">
+              <div class="main-hobby-card">
+                <div class="hobby-visual">
+                  <div class="gaming-setup">
+                    <div class="monitor"></div>
+                    <div class="keyboard"></div>
+                    <div class="mouse"></div>
+                  </div>
+                </div>
+                <div class="hobby-content">
+                  <h3 class="hobby-title">Gaming & Hardware Enthusiast</h3>
+                  <p class="hobby-description">
+                    Beyond coding, I'm passionate about gaming culture and
+                    hardware optimization. I enjoy strategy games that challenge
+                    problem-solving skills, and I love building and optimizing
+                    PC setups. Gaming feeds my competitive spirit and provides
+                    relaxation after intense coding sessions.
+                  </p>
+                  <div class="hobby-stats">
+                    <div class="stat">
+                      <span class="stat-number">3</span>
+                      <span class="stat-label">PC Builds</span>
+                    </div>
+                    <div class="stat">
+                      <span class="stat-number">10+</span>
+                      <span class="stat-label">Favorite Games</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hobby-grid">
+                <div class="hobby-card">
+                  <div class="hobby-icon">
+                    <ion-icon name="hardware-chip"></ion-icon>
+                  </div>
+                  <h4>Hardware Building</h4>
+                  <p>
+                    Assembling custom PCs, optimizing performance, and staying
+                    current with latest tech trends.
+                  </p>
+                </div>
+
+                <div class="hobby-card">
+                  <div class="hobby-icon">
+                    <ion-icon name="rocket"></ion-icon>
+                  </div>
+                  <h4>Retro Game Emulation</h4>
+                  <p>
+                    Setting up emulators and rediscovering classic games from
+                    early consoles and PCs for nostalgia and inspiration.
+                  </p>
+                </div>
+
+                <div class="hobby-card">
+                  <div class="hobby-icon">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                  </div>
+                  <h4>Tech Content</h4>
+                  <p>
+                    Following YouTubers who share tech reviews, builds,
+                    automation hacks, and dev humor including Linus, Fireship,
+                    and CodeBullet.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Learning & Growth Category -->
+          <div id="learning-category" class="hobby-category">
+            <div class="hobby-showcase">
+              <div class="main-hobby-card">
+                <div class="hobby-visual">
+                  <div class="book-stack">
+                    <div class="book book1"></div>
+                    <div class="book book2"></div>
+                    <div class="book book3"></div>
+                    <div class="book book4"></div>
+                    <div class="book book5"></div>
+                  </div>
+                </div>
+                <div class="hobby-content">
+                  <h3 class="hobby-title">Continuous Learning & Philosophy</h3>
+                  <p class="hobby-description">
+                    Exploring fantasy realms, philosophical ideas, and
+                    self-improvement, one book at a time. Recently rediscovering
+                    the joy of reading while applying insights to both tech
+                    projects and daily life.
+                  </p>
+                  <div class="hobby-stats">
+                    <div class="stat">
+                      <span class="stat-number">Current Read</span>
+                      <span class="stat-label"
+                        >Letters from a Stoic - Seneca</span
+                      >
+                    </div>
+                    <div class="stat">
+                      <span class="stat-number">2+</span>
+                      <span class="stat-label">Online Courses</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hobby-grid">
+                <div class="hobby-card">
+                  <div class="hobby-icon">
+                    <ion-icon name="school"></ion-icon>
+                  </div>
+                  <h4>Online Learning</h4>
+                  <p>
+                    Constantly expanding skills through platforms like Coursera,
+                    Udemy, and specialized tech courses.
+                  </p>
+                </div>
+
+                <div class="hobby-card">
+                  <div class="hobby-icon">
+                    <ion-icon name="people"></ion-icon>
+                  </div>
+                  <h4>Mentoring</h4>
+                  <p>
+                    Helping fellow students and sharing knowledge through peer
+                    programming and study groups.
+                  </p>
+                </div>
+
+                <div class="hobby-card">
+                  <div class="hobby-icon">
+                    <ion-icon name="bulb"></ion-icon>
+                  </div>
+                  <h4>Innovation Thinking</h4>
+                  <p>
+                    Exploring entrepreneurial ideas and innovative solutions to
+                    real-world problems.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Philosophy Section -->
+        <div class="philosophy-section">
+          <h3 class="section-subtitle">Personal Philosophy</h3>
+          <div class="philosophy-cards">
+            <div class="philosophy-card">
+              <div class="philosophy-icon">
+                <ion-icon name="infinite"></ion-icon>
+              </div>
+              <h4>"Growth Through Challenge"</h4>
+              <p>
+                I believe the most meaningful growth comes from stepping outside
+                comfort zones. Whether it's tackling a complex coding problem or
+                exploring a new hiking trail, challenges shape us into better
+                versions of ourselves.
+              </p>
+            </div>
+
+            <div class="philosophy-card">
+              <div class="philosophy-icon">
+                <ion-icon name="heart"></ion-icon>
+              </div>
+              <h4>"Passion Drives Excellence"</h4>
+              <p>
+                True mastery emerges when passion meets dedication. My diverse
+                interests fuel creativity in programming, and artistic pursuits
+                enhance my problem-solving approach in technology.
+              </p>
+            </div>
+
+            <div class="philosophy-card">
+              <div class="philosophy-icon">
+                <ion-icon name="share-social"></ion-icon>
+              </div>
+              <h4>"Knowledge Multiplies When Shared"</h4>
+              <p>
+                From mentoring fellow students to creating art for community
+                spaces, I've learned that sharing knowledge and creativity
+                amplifies their impact and creates lasting positive change.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Current Projects & Goals -->
+        <div class="current-goals-section">
+          <h3 class="section-subtitle">Current Adventures</h3>
+          <div class="goals-timeline">
+            <div class="goal-item">
+              <div class="goal-icon">
+                <ion-icon name="camera-outline"></ion-icon>
+              </div>
+              <div class="goal-content">
+                <h4>Wildlife Photography Series</h4>
+                <p>
+                  Currently working on a photo series documenting the wildlife
+                  around Pretoria and the greater Gauteng region.
+                </p>
+                <div class="goal-progress">
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%"></div>
+                  </div>
+                  <span>60% Complete</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="goal-item">
+              <div class="goal-icon">
+                <ion-icon name="code-slash-outline"></ion-icon>
+              </div>
+              <div class="goal-content">
+                <h4>Personal Portfolio Evolution</h4>
+                <p>
+                  Continuously improving this portfolio with new features,
+                  animations, and showcasing latest projects.
+                </p>
+                <div class="goal-progress">
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85%"></div>
+                  </div>
+                  <span>Ongoing</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="goal-item">
+              <div class="goal-icon">
+                <ion-icon name="fitness-outline"></ion-icon>
+              </div>
+              <div class="goal-content">
+                <h4>Limpopo Cycling Challenge</h4>
+                <p>
+                  Planning to complete several challenging cycling trails in the
+                  Limpopo area including Kremetart 175km solo before the end of
+                  2026.
+                </p>
+                <div class="goal-progress">
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 30%"></div>
+                  </div>
+                  <span>Planning & Training Phase</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fun Facts -->
+        <div class="fun-facts-section">
+          <h3 class="section-subtitle">Fun Facts About Me</h3>
+          <div class="facts-grid">
+            <div class="fact-card" onclick="rotateFact(this)">
+              <div class="fact-front">
+                <ion-icon name="cafe"></ion-icon>
+                <h4>Tea Enthusiast</h4>
+              </div>
+              <div class="fact-back">
+                <p>
+                  I've sampled over 20 unique South African teas, from the
+                  earthy tones of Cederberg to the smooth vanilla notes of
+                  Clanwilliam
+                </p>
+              </div>
+            </div>
+
+            <div class="fact-card" onclick="rotateFact(this)">
+              <div class="fact-front">
+                <ion-icon name="musical-note"></ion-icon>
+                <h4>Hidden Talent</h4>
+              </div>
+              <div class="fact-back">
+                <p>
+                  I can play Acoustic and Electric guitar while also dabbling in
+                  the Ukulele and Piano.
+                </p>
+              </div>
+            </div>
+
+            <div class="fact-card" onclick="rotateFact(this)">
+              <div class="fact-front">
+                <ion-icon name="rocket"></ion-icon>
+                <h4>Space Nerd</h4>
+              </div>
+              <div class="fact-back">
+                <p>
+                  I've witnessed 4 rocket launches via live stream and love to
+                  stargaze in a open field. I've also watched a meteor shower
+                  back home on the farm.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Projects Page -->
-    <div id="projects-page" class="page">
+    <!-- Projects Page - FIXED CLASS -->
+    <div id="projects-page" class="page-container hidden">
       <div class="content-container">
         <h2 class="section-title">Featured Projects</h2>
 
@@ -918,7 +1412,6 @@
                   <div class="stat-value">Live</div>
                   <div class="stat-label">Feedback Display</div>
                 </div>
-                
               </div>
             </div>
           </div>
@@ -990,16 +1483,12 @@
               </div>
             </div>
           </div>
-
-          
-            </div>
-          </div>
         </div>
       </div>
     </div>
 
-    <!-- Contact Page -->
-    <div id="contact-page" class="page">
+    <!-- Contact Page - FIXED CLASS -->
+    <div id="contact-page" class="page-container hidden">
       <div class="content-container">
         <h2 class="section-title">Let's Build Something Amazing</h2>
         <p
@@ -1063,15 +1552,9 @@
               Send Email
             </a>
             <a
-              href="https://www.linkedin.com/in/shaundebeer"
+              href=".//assests/Shaun de Beer CV - 2025.pdf"
               target="_blank"
               class="btn btn-secondary"
-            >
-              Connect on LinkedIn
-            </a>
-            <a
-              href=".//assests/Shaun de Beer CV - 2025.pdf"
-              class="btn btn-primary"
               download
             >
               Download CV
@@ -1106,4 +1589,5 @@
     ></script>
     <script src="../js/main.js"></script>
   </body>
-</html>
+</html>"
+  

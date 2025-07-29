@@ -1,9 +1,13 @@
-// Page Management
+// Page Management - Define FIRST to ensure it's available for onclick handlers
 function showPage(pageId) {
+  console.log("Attempting to show page:", pageId); // Debug log
+
   // Hide all pages
-  document.querySelectorAll(".page, .page-container").forEach((page) => {
+  const allPages = document.querySelectorAll("[id$='-page']");
+  allPages.forEach((page) => {
     page.classList.remove("active");
     page.classList.add("hidden");
+    page.style.display = "none"; // Force hide
   });
 
   // Remove active class from all nav links
@@ -11,21 +15,44 @@ function showPage(pageId) {
     link.classList.remove("active");
   });
 
-  // Show selected page (always use -page suffix)
-  const page = document.getElementById(pageId + "-page");
-  if (page) {
-    page.classList.add("active");
-    page.classList.remove("hidden");
+  // Show selected page
+  const targetPage = document.getElementById(pageId + "-page");
+  if (targetPage) {
+    targetPage.classList.add("active");
+    targetPage.classList.remove("hidden");
+    targetPage.style.display = "block"; // Force show
+    console.log("Successfully showed page:", pageId); // Debug log
+  } else {
+    console.error("Page not found:", pageId + "-page"); // Debug log
   }
 
   // Add active class to corresponding nav link
-  document
-    .querySelector(`[onclick="showPage('${pageId}')"]`)
-    .classList.add("active");
+  const activeLink = document.querySelector(
+    `[onclick*="showPage('${pageId}')"]`
+  );
+  if (activeLink) {
+    activeLink.classList.add("active");
+  }
 
   // Scroll to top
-  window.scrollTo(0, 0);
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
+// Mobile Menu Functions
+function toggleMobileMenu() {
+  const navLinks = document.getElementById("nav-links");
+  navLinks.classList.toggle("mobile-open");
+}
+
+function closeMobileMenu() {
+  const navLinks = document.getElementById("nav-links");
+  navLinks.classList.remove("mobile-open");
+}
+
+// Make functions globally available
+window.showPage = showPage;
+window.toggleMobileMenu = toggleMobileMenu;
+window.closeMobileMenu = closeMobileMenu;
 
 // Year Tab Switching Function for Education Page
 function showYear(year) {
@@ -48,6 +75,61 @@ function showYear(year) {
   // Add active class to clicked tab
   event.target.classList.add("active");
 }
+
+// Make functions globally available
+window.showYear = showYear;
+
+// Hobby Category Switching Function
+function showHobbyCategory(category) {
+  // Hide all hobby categories
+  document.querySelectorAll(".hobby-category").forEach((content) => {
+    content.classList.remove("active");
+  });
+
+  // Remove active class from all category tabs
+  document.querySelectorAll(".category-tab").forEach((tab) => {
+    tab.classList.remove("active");
+  });
+
+  // Show selected category content
+  const categoryContent = document.getElementById(`${category}-category`);
+  if (categoryContent) {
+    categoryContent.classList.add("active");
+  }
+
+  // Add active class to clicked tab
+  event.target.classList.add("active");
+}
+
+// Make functions globally available
+window.showHobbyCategory = showHobbyCategory;
+
+// Fun Facts Card Rotation Function
+function rotateFact(card) {
+  card.classList.toggle("flipped");
+}
+
+// Make functions globally available
+window.rotateFact = rotateFact;
+
+// Theme Toggle Function
+function toggleTheme() {
+  const body = document.body;
+  const button = document.querySelector(".theme-toggle");
+
+  if (body.getAttribute("data-theme") === "light") {
+    body.removeAttribute("data-theme");
+    button.textContent = "🌙 Dark";
+    localStorage.setItem("theme", "dark");
+  } else {
+    body.setAttribute("data-theme", "light");
+    button.textContent = "☀ Light";
+    localStorage.setItem("theme", "light");
+  }
+}
+
+// Make functions globally available
+window.toggleTheme = toggleTheme;
 
 // Particle System
 class ParticleSystem {
@@ -74,7 +156,12 @@ class ParticleSystem {
   }
 
   init() {
-    const particleCount = Math.min(100, Math.floor(window.innerWidth / 10));
+    // Reduce particle count on mobile for performance
+    const particleCount =
+      window.innerWidth < 768
+        ? 30
+        : Math.min(100, Math.floor(window.innerWidth / 10));
+
     for (let i = 0; i < particleCount; i++) {
       this.particles.push({
         x: Math.random() * this.canvas.width,
@@ -91,14 +178,16 @@ class ParticleSystem {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     this.particles.forEach((particle) => {
-      // Mouse interaction
-      const dx = this.mouse.x - particle.x;
-      const dy = this.mouse.y - particle.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
+      // Mouse interaction (disabled on mobile for performance)
+      if (window.innerWidth >= 768) {
+        const dx = this.mouse.x - particle.x;
+        const dy = this.mouse.y - particle.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance < 100) {
-        particle.vx += dx * 0.00005;
-        particle.vy += dy * 0.00005;
+        if (distance < 100) {
+          particle.vx += dx * 0.00005;
+          particle.vy += dy * 0.00005;
+        }
       }
 
       // Update position
@@ -118,9 +207,18 @@ class ParticleSystem {
       this.ctx.fill();
     });
 
-    // Draw connections
+    // Draw connections (simplified on mobile)
+    const maxConnections = window.innerWidth < 768 ? 50 : 100;
+    let connectionCount = 0;
+
     this.particles.forEach((particle, i) => {
-      for (let j = i + 1; j < this.particles.length; j++) {
+      if (connectionCount >= maxConnections) return;
+
+      for (
+        let j = i + 1;
+        j < this.particles.length && connectionCount < maxConnections;
+        j++
+      ) {
         const other = this.particles[j];
         const dx = particle.x - other.x;
         const dy = particle.y - other.y;
@@ -134,6 +232,7 @@ class ParticleSystem {
             0.1 * (1 - distance / 100)
           })`;
           this.ctx.stroke();
+          connectionCount++;
         }
       }
     });
@@ -144,35 +243,23 @@ class ParticleSystem {
 
 // Initialize particle system
 const canvas = document.getElementById("particle-canvas");
-new ParticleSystem(canvas);
-
-// Theme Toggle
-function toggleTheme() {
-  const body = document.body;
-  const button = document.querySelector(".theme-toggle");
-
-  if (body.getAttribute("data-theme") === "light") {
-    body.removeAttribute("data-theme");
-    button.textContent = "🌙 Dark";
-    localStorage.setItem("theme", "dark");
-  } else {
-    body.setAttribute("data-theme", "light");
-    button.textContent = "☀ Light";
-    localStorage.setItem("theme", "light");
-  }
+if (canvas) {
+  new ParticleSystem(canvas);
 }
 
 // Load saved theme
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "light") {
   document.body.setAttribute("data-theme", "light");
-  document.querySelector(".theme-toggle").textContent = "☀ Light";
+  const button = document.querySelector(".theme-toggle");
+  if (button) button.textContent = "☀ Light";
 } else if (
   window.matchMedia &&
   window.matchMedia("(prefers-color-scheme: light)").matches
 ) {
   document.body.setAttribute("data-theme", "light");
-  document.querySelector(".theme-toggle").textContent = "☀ Light";
+  const button = document.querySelector(".theme-toggle");
+  if (button) button.textContent = "☀ Light";
 }
 
 // Terminal Easter Egg (Konami Code: ↑↑↓↓←→←→BA)
@@ -207,9 +294,10 @@ function showTerminal() {
   const terminal = document.getElementById("terminal");
   const terminalBody = document.getElementById("terminal-body");
 
+  if (!terminal || !terminalBody) return;
+
   terminal.style.display = "block";
 
-  // Add some cool terminal content
   const commands = [
     "System initialization complete...",
     "Loading developer profile...",
@@ -217,9 +305,10 @@ function showTerminal() {
     "> Status: Available for hire",
     "> Location: Pretoria, South Africa",
     "> Specialization: Full-Stack Development & IoT Solutions",
+    "> Hobbies: Wall Art, Nature Photography, Gaming, Continuous Learning",
     "",
     "Fun fact: This terminal was activated by the Konami Code!",
-    "Available commands: help, contact, projects, skills, about, education",
+    "Available commands: help, contact, projects, skills, about, education, hobbies",
     "",
   ];
 
@@ -245,6 +334,8 @@ function showTerminal() {
 
 function createTerminalInput() {
   const terminalBody = document.getElementById("terminal-body");
+  if (!terminalBody) return;
+
   const inputLine = document.createElement("div");
   inputLine.className = "terminal-line";
   inputLine.innerHTML =
@@ -252,66 +343,78 @@ function createTerminalInput() {
   terminalBody.appendChild(inputLine);
 
   const input = document.getElementById("terminal-input");
-  input.focus();
+  if (input) {
+    input.focus();
 
-  input.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      const command = this.value.trim().toLowerCase();
-      const response = processCommand(command);
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        const command = this.value.trim().toLowerCase();
+        const response = processCommand(command);
 
-      // Add command to history
-      const cmdLine = document.createElement("div");
-      cmdLine.className = "terminal-line";
-      cmdLine.textContent = "shaun@portfolio:~$ " + this.value;
-      terminalBody.insertBefore(cmdLine, inputLine);
+        // Add command to history
+        const cmdLine = document.createElement("div");
+        cmdLine.className = "terminal-line";
+        cmdLine.textContent = "shaun@portfolio:~$ " + this.value;
+        terminalBody.insertBefore(cmdLine, inputLine);
 
-      // Add response
-      if (response) {
-        const responseLine = document.createElement("div");
-        responseLine.className = "terminal-line";
-        responseLine.innerHTML = response;
-        terminalBody.insertBefore(responseLine, inputLine);
+        // Add response
+        if (response) {
+          const responseLine = document.createElement("div");
+          responseLine.className = "terminal-line";
+          responseLine.innerHTML = response;
+          terminalBody.insertBefore(responseLine, inputLine);
+        }
+
+        this.value = "";
+        terminalBody.scrollTop = terminalBody.scrollHeight;
       }
-
-      this.value = "";
-      terminalBody.scrollTop = terminalBody.scrollHeight;
-    }
-  });
+    });
+  }
 }
 
 function processCommand(command) {
   switch (command) {
     case "help":
-      return "Available commands:<br>• help - Show this help<br>• contact - Show contact information<br>• projects - List my projects<br>• skills - Show technical skills<br>• about - About me<br>• education - Academic journey<br>• clear - Clear terminal<br>• home - Go to home page<br>• page [name] - Navigate to page";
+      return "Available commands:<br>• help - Show this help<br>• contact - Show contact information<br>• projects - List my projects<br>• skills - Show technical skills<br>• about - About me<br>• education - Academic journey<br>• hobbies - Personal interests & hobbies<br>• clear - Clear terminal<br>• home - Go to home page<br>• page [name] - Navigate to page";
     case "contact":
       return "Contact Information:<br>📧 debeershaun18@gmail.com<br>📱 +27 82 050 5674<br>💼 linkedin.com/in/shaundebeer<br>📍 Akasia, Pretoria, South Africa";
     case "projects":
-      return "Featured Projects:<br>🔧 IoT Generator Monitoring System<br>🛒 Full-Stack E-Commerce Platform<br>📊 Student Management System<br>📈 Business Analytics Dashboard<br>📱 Restaurant Ordering Mobile App<br>⚡ Agile Project Management Platform";
+      return "Featured Projects:<br>🔧 IoT Generator Monitoring System<br>⚡ MQ-2 Gas Sensor Alert Circuit<br>📊 C# Student Wellness Management System<br>🌐 Web-Based Login & Registration System<br>🎨 Wall Art & Custom Design Projects";
     case "skills":
-      return "Technical Skills:<br>💻 Languages: C#, Java, Python, JavaScript<br>🗄️ Database: SQL & Database Management<br>🌐 Web: HTML, CSS, JavaScript<br>📊 Project Management: Agile, Scrum<br>🔧 Tools: Git/GitHub, Visual Studio";
+      return "Technical Skills:<br>💻 Languages: C#, Java, Python, JavaScript<br>🗄️ Database: SQL & Database Management<br>🌐 Web: HTML, CSS, JavaScript, JSP/Servlets<br>📊 Project Management: Agile, Scrum<br>🔧 Tools: Git/GitHub, Visual Studio<br>🤖 IoT: MQTT, Sensor Integration, Arduino";
     case "about":
-      return "About Shaun de Beer:<br>🎓 Bachelor of Computing student (Belgium Campus ITversity)<br>⭐ Averaging with distinction - 240 credits achieved<br>🚀 Passionate about full-stack development and IoT<br>🎯 Goal: Drive digital transformation at forward-thinking companies";
+      return "About Shaun de Beer:<br>🎓 Bachelor of Computing student (Belgium Campus ITversity)<br>⭐ 72% Weighted Average - 268 credits achieved<br>🏆 24 Distinctions earned<br>🚀 Passionate about full-stack development and IoT<br>🎯 Goal: Drive digital transformation at forward-thinking companies";
     case "education":
-      return "Academic Journey:<br>🎓 Bachelor of Computing - Belgium Campus ITversity<br>📈 66.5% Weighted Average<br>📚 240 Credits Achieved<br>🏆 22 Distinctions<br>🔬 Currently: Machine Learning & Advanced Development";
+      return "Academic Journey:<br>🎓 Bachelor of Computing - Belgium Campus ITversity<br>📈 72% Weighted Average<br>📚 268 Credits Achieved<br>🏆 24 Distinctions<br>🔬 Currently: Machine Learning & Advanced Development";
+    case "hobbies":
+      return "Hobbies & Interests:<br>🎨 Wall Art & Custom Designs (4+ years experience)<br>📸 Nature Photography & Cycling (50+ trails explored)<br>🎮 Gaming & Hardware Building (3 PC builds)<br>📚 Continuous Learning & Philosophy<br>🌟 Philosophy: Growth through challenge, passion drives excellence";
     case "home":
       showPage("home");
       return "Navigating to home page...";
     case "clear":
-      document.getElementById("terminal-body").innerHTML = "";
-      createTerminalInput();
+      const terminalBody = document.getElementById("terminal-body");
+      if (terminalBody) {
+        terminalBody.innerHTML = "";
+        createTerminalInput();
+      }
       return null;
     default:
       if (command.startsWith("page ")) {
         const pageName = command.split(" ")[1];
         if (
-          ["home", "about", "education", "projects", "contact"].includes(
-            pageName
-          )
+          [
+            "home",
+            "about",
+            "education",
+            "hobbies",
+            "projects",
+            "contact",
+          ].includes(pageName)
         ) {
           showPage(pageName);
           return `Navigating to ${pageName} page...`;
         } else {
-          return `Page '${pageName}' not found. Available pages: home, about, education, projects, contact`;
+          return `Page '${pageName}' not found. Available pages: home, about, education, hobbies, projects, contact`;
         }
       }
       return command
@@ -323,14 +426,36 @@ function processCommand(command) {
 // Close terminal with ESC
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
-    document.getElementById("terminal").style.display = "none";
+    const terminal = document.getElementById("terminal");
+    if (terminal) {
+      terminal.style.display = "none";
+    }
   }
 });
 
 // Close terminal when clicking outside
-document.getElementById("terminal").addEventListener("click", function (e) {
-  if (e.target === this) {
-    this.style.display = "none";
+const terminal = document.getElementById("terminal");
+if (terminal) {
+  terminal.addEventListener("click", function (e) {
+    if (e.target === this) {
+      this.style.display = "none";
+    }
+  });
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener("click", function (e) {
+  const navLinks = document.getElementById("nav-links");
+  const menuToggle = document.querySelector(".mobile-menu-toggle");
+
+  if (
+    navLinks &&
+    menuToggle &&
+    !navLinks.contains(e.target) &&
+    !menuToggle.contains(e.target) &&
+    navLinks.classList.contains("mobile-open")
+  ) {
+    navLinks.classList.remove("mobile-open");
   }
 });
 
@@ -349,24 +474,6 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observe elements for scroll animations
-document
-  .querySelectorAll(
-    ".bento-card, .project-card, .contact-item, .timeline-item, .subject-card, .achievement-card, .education-header"
-  )
-  .forEach((el) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(30px)";
-    el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-    observer.observe(el);
-  });
-
-// Performance optimization: Reduce particle count on mobile
-if (window.innerWidth < 768) {
-  const canvas = document.getElementById("particle-canvas");
-  canvas.style.opacity = "0.3";
-}
-
 // Enhanced scroll effects for navbar
 let lastScrollY = window.scrollY;
 const nav = document.querySelector(".nav");
@@ -374,43 +481,47 @@ const nav = document.querySelector(".nav");
 window.addEventListener("scroll", () => {
   const currentScrollY = window.scrollY;
 
-  if (currentScrollY > lastScrollY && currentScrollY > 100) {
-    nav.style.transform = "translateY(-100%)";
-  } else {
-    nav.style.transform = "translateY(0)";
+  if (nav) {
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      nav.style.transform = "translateY(-100%)";
+    } else {
+      nav.style.transform = "translateY(0)";
+    }
   }
 
   lastScrollY = currentScrollY;
 });
 
 // Add click effects to buttons
-document.querySelectorAll(".btn").forEach((btn) => {
-  btn.addEventListener("click", function (e) {
-    const ripple = document.createElement("span");
-    const rect = this.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const x = e.clientX - rect.left - size / 2;
-    const y = e.clientY - rect.top - size / 2;
+function addButtonEffects() {
+  document.querySelectorAll(".btn").forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      const ripple = document.createElement("span");
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
 
-    ripple.style.width = ripple.style.height = size + "px";
-    ripple.style.left = x + "px";
-    ripple.style.top = y + "px";
-    ripple.style.position = "absolute";
-    ripple.style.borderRadius = "50%";
-    ripple.style.backgroundColor = "rgba(255,255,255,0.3)";
-    ripple.style.transform = "scale(0)";
-    ripple.style.animation = "ripple 0.6s linear";
-    ripple.style.pointerEvents = "none";
+      ripple.style.width = ripple.style.height = size + "px";
+      ripple.style.left = x + "px";
+      ripple.style.top = y + "px";
+      ripple.style.position = "absolute";
+      ripple.style.borderRadius = "50%";
+      ripple.style.backgroundColor = "rgba(255,255,255,0.3)";
+      ripple.style.transform = "scale(0)";
+      ripple.style.animation = "ripple 0.6s linear";
+      ripple.style.pointerEvents = "none";
 
-    this.style.position = "relative";
-    this.style.overflow = "hidden";
-    this.appendChild(ripple);
+      this.style.position = "relative";
+      this.style.overflow = "hidden";
+      this.appendChild(ripple);
 
-    setTimeout(() => {
-      ripple.remove();
-    }, 600);
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
   });
-});
+}
 
 // Add ripple animation
 const style = document.createElement("style");
@@ -426,6 +537,8 @@ document.head.appendChild(style);
 
 // Typing effect for hero subtitle
 function typeWriter(element, text, speed = 50) {
+  if (!element) return;
+
   let i = 0;
   element.textContent = "";
 
@@ -440,16 +553,44 @@ function typeWriter(element, text, speed = 50) {
   type();
 }
 
-// Initialize typing effect when page loads
+// Initialize when page loads - Simplified
 window.addEventListener("load", () => {
+  console.log("Page loaded, initializing..."); // Debug log
+
+  // List all pages found
+  const pages = document.querySelectorAll("[id$='-page']");
+  console.log(
+    "Found pages:",
+    Array.from(pages).map((p) => p.id)
+  );
+
+  // Ensure home page is visible by default
+  showPage("home");
+
+  // Initialize other features
   const subtitle = document.querySelector(".hero .subtitle");
   if (subtitle) {
     const originalText = subtitle.textContent;
     typeWriter(subtitle, originalText, 80);
   }
 
-  // Initialize education page enhancements
   initializeEducationPage();
+  initializeHobbiesPage();
+
+  // Add button effects
+  addButtonEffects();
+
+  // Observe elements for scroll animations
+  document
+    .querySelectorAll(
+      ".bento-card, .project-card, .contact-item, .timeline-item, .subject-card, .achievement-card, .education-header, .hobby-card, .philosophy-card, .goal-item, .main-hobby-card"
+    )
+    .forEach((el) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(30px)";
+      el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+      observer.observe(el);
+    });
 });
 
 // Education page specific initialization
@@ -482,29 +623,131 @@ function initializeEducationPage() {
   });
 }
 
+// Hobbies page specific initialization
+function initializeHobbiesPage() {
+  // Add staggered animation to hobby cards
+  document.querySelectorAll(".hobby-card").forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.1}s`;
+  });
+
+  // Initialize progress bars animation
+  const progressBars = document.querySelectorAll(".progress-fill");
+  const progressObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const progressBar = entry.target;
+        const width = progressBar.style.width;
+        progressBar.style.width = "0%";
+        setTimeout(() => {
+          progressBar.style.width = width;
+        }, 200);
+      }
+    });
+  });
+
+  progressBars.forEach((bar) => {
+    progressObserver.observe(bar);
+  });
+
+  // Add floating animation to visual elements
+  document.querySelectorAll(".paint-blob, .sun, .clouds").forEach((element) => {
+    element.style.animationDelay = `${Math.random() * 2}s`;
+  });
+
+  // Auto-flip fact cards periodically (optional) - disabled on mobile for performance
+  if (window.innerWidth >= 768) {
+    setInterval(() => {
+      const factCards = document.querySelectorAll(".fact-card");
+      const randomCard =
+        factCards[Math.floor(Math.random() * factCards.length)];
+      if (randomCard && Math.random() < 0.3) {
+        randomCard.classList.add("flipped");
+        setTimeout(() => {
+          randomCard.classList.remove("flipped");
+        }, 3000);
+      }
+    }, 8000);
+  }
+}
+
+// Interactive hobby category switching with keyboard support
+document.addEventListener("keydown", function (e) {
+  // Only if hobbies page is active and not mobile
+  const hobbiesPage = document.getElementById("hobbies-page");
+  if (
+    !hobbiesPage ||
+    !hobbiesPage.classList.contains("active") ||
+    window.innerWidth < 768
+  )
+    return;
+
+  const categories = ["creative", "outdoor", "tech", "learning"];
+  const currentActive = document.querySelector(".category-tab.active");
+  const currentIndex = Array.from(
+    document.querySelectorAll(".category-tab")
+  ).indexOf(currentActive);
+
+  if (e.key === "ArrowLeft" && currentIndex > 0) {
+    showHobbyCategory(categories[currentIndex - 1]);
+    document
+      .querySelectorAll(".category-tab")
+      [currentIndex - 1].classList.add("active");
+  } else if (e.key === "ArrowRight" && currentIndex < categories.length - 1) {
+    showHobbyCategory(categories[currentIndex + 1]);
+    document
+      .querySelectorAll(".category-tab")
+      [currentIndex + 1].classList.add("active");
+  }
+});
+
+// Performance optimization: Reduce effects on mobile
+if (window.innerWidth < 768) {
+  const canvas = document.getElementById("particle-canvas");
+  if (canvas) {
+    canvas.style.opacity = "0.3";
+  }
+}
+
+// Handle window resize for responsive adjustments
+window.addEventListener("resize", () => {
+  // Close mobile menu on resize to desktop
+  if (window.innerWidth >= 768) {
+    const navLinks = document.getElementById("nav-links");
+    if (navLinks) {
+      navLinks.classList.remove("mobile-open");
+    }
+  }
+});
+
 // Console Easter egg
 console.log(`
-🚀 Welcome to Shaun's Enhanced Portfolio!
+🚀 Welcome to Shaun's Mobile-Optimized Portfolio!
 
 Hey there, fellow developer! 👋
 
-This portfolio now features:
-• Multi-page navigation system
-• 6 diverse project showcases
-• Comprehensive education section
-• Interactive terminal (Konami code!)
-• Smooth page transitions
-• Mobile-responsive design
+This portfolio features:
+• 📱 Mobile-first responsive design
+• 🎯 Fixed page navigation system
+• 🎨 Interactive hobbies section with 4 categories
+• 📚 Comprehensive education breakdown
+• 🚀 Performance optimizations for mobile
+• 🎮 Interactive terminal (Konami code!)
+• 🌙 Dark/Light theme toggle
 
-Education Highlights:
-• 22 Distinctions achieved
-• 66.5% Weighted Average
-• 240 Credits completed
-• Interactive year tabs
+Mobile Features:
+• Hamburger navigation menu
+• Touch-friendly interactions
+• Optimized particle system
+• Responsive grids and layouts
+
+Navigation Fixed:
+• Projects page now properly hidden on load
+• Contact page now properly hidden on load
+• All pages use consistent .page-container system
 
 Try the terminal commands:
-• 'page education' - Navigate to education
-• 'education' - View academic summary
+• 'page hobbies' - Navigate to hobbies
+• 'hobbies' - View hobbies summary
 • 'help' - See all commands
 
 Let's connect: debeershaun18@gmail.com
@@ -515,9 +758,9 @@ if ("performance" in window) {
   window.addEventListener("load", () => {
     setTimeout(() => {
       const perfData = performance.getEntriesByType("navigation")[0];
-      if (perfData.loadEventEnd - perfData.loadEventStart < 1200) {
+      if (perfData && perfData.loadEventEnd - perfData.loadEventStart < 2000) {
         console.log(
-          "⚡ Enhanced portfolio loaded in under 1.2s - Performance goal achieved!"
+          "⚡ Mobile-optimized portfolio loaded in under 2s - Performance goal achieved!"
         );
       }
     }, 0);
