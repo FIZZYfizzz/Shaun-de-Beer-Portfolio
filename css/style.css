@@ -867,18 +867,6 @@ body {
   color: white;
 }
 
-.hobby-card h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-}
-
-.hobby-card p {
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
 /* Philosophy Section */
 .philosophy-section {
   margin: 4rem 0;
@@ -1134,9 +1122,16 @@ img,
     font-size: 1.3rem;
   }
   .mobile-menu-toggle {
-    width: 48px;
-    height: 48px;
-    padding: 1rem;
+    width: 40px;
+    height: 40px;
+    padding: 0.5rem;
+    top: 1.2rem;
+    right: 1.2rem;
+  }
+  .mobile-menu-toggle span {
+    width: 22px;
+    height: 3px;
+    margin: 3px 0;
   }
   .nav-links-backdrop {
     display: block;
@@ -1159,6 +1154,28 @@ img,
     top: 1.2rem;
     position: fixed;
     z-index: 1003;
+  }
+  .hero-image {
+    margin-top: 4.5rem; /* Pushes image below navbar */
+  }
+  .category-tabs {
+    margin-bottom: 1.5rem;
+    gap: 0.5rem;
+  }
+  .category-tab {
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+  }
+  .main-hobby-card {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .hobby-title {
+    font-size: 1.3rem;
+  }
+  .hobby-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -1843,6 +1860,7 @@ img,
   .hero-image {
     width: 150px;
     height: 150px;
+    margin-top: 4.5rem; /* Pushes image below navbar */
   }
 
   .hero h1 {
