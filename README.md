@@ -47,18 +47,6 @@ Intersection Observer - Scroll-triggered animations
 Performance Monitoring - Load time tracking and optimization
 Accessibility - Semantic HTML, proper contrast ratios, keyboard navigation
 
-📁 Project Structure
-
-portfolio/
-├── index.html              # Main HTML file with all page content
-├── css/
-│   └── style.css          # Comprehensive stylesheet with responsive design
-├── js/
-│   └── main.js            # JavaScript functionality and interactions
-├── assets/
-│   └── Shaun de Beer CV - 2025.pdf  # Downloadable CV
-└── README.md              # This file
-
 💡 Usage Guide
 
 Navigation
