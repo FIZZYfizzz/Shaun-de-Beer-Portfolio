@@ -651,7 +651,7 @@ function initializeHobbiesPage() {
 
   // Add floating animation to visual elements
   document.querySelectorAll(".paint-blob, .sun, .clouds").forEach((element) => {
-    element.style.animationDelay = `${Math.random() * 2}s`;
+    element.style.animationDelay = `${Math.random() * 1.5}s`;
   });
 
   // Auto-flip fact cards periodically (optional) - disabled on mobile for performance
