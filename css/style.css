@@ -58,8 +58,9 @@ body {
   display: none;
   flex-direction: column;
   position: fixed;
-  top: 1.5rem;
+  top: 2rem;
   right: 2rem;
+  height: 35px;
   z-index: 1001;
   background: var(--card-bg);
   border: 1px solid var(--border-color);
@@ -70,10 +71,11 @@ body {
 }
 
 .mobile-menu-toggle span {
-  width: 20px;
-  height: 2px;
+  width: 10px;
+  height: 1px;
+  align-items: center;
   background: var(--text-primary);
-  margin: 2px 0;
+  margin: 1px 0;
   transition: 0.3s;
 }
 
@@ -1116,22 +1118,47 @@ body {
   font-size: 0.95rem;
 }
 
+img,
+.hero-image img,
+.paint-palette,
+.nature-scene,
+.gaming-setup,
+.book-stack {
+  max-width: 100%;
+  height: auto;
+}
+
 @media (max-width: 768px) {
-  .mobile-menu-toggle {
-    width: 40px;
-    height: 40px;
-    top: 1.2rem;
-    right: 1.2rem;
-    font-size: 1.5rem;
-    padding: 0;
+  .nav-links a {
+    padding: 1.5rem 1rem;
+    font-size: 1.3rem;
   }
-  .mobile-menu-toggle span {
-    height: 3px;
-    margin: 6px 0;
+  .mobile-menu-toggle {
+    width: 48px;
+    height: 48px;
+    padding: 1rem;
+  }
+  .nav-links-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+  }
+  .nav-links:not(.mobile-open) + .nav-links-backdrop {
+    display: none;
   }
   .theme-toggle {
-    right: 4.5rem; /* Ensures space between theme toggle and burger */
+    right: 5.5rem;
+    top: 1.5rem;
+    position: fixed;
+    z-index: 1002;
+  }
+  .mobile-menu-toggle {
+    right: 2rem;
     top: 1.2rem;
+    position: fixed;
+    z-index: 1003;
   }
 }
 
@@ -1814,21 +1841,8 @@ body {
   }
 
   .hero-image {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 1.5rem auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Remove any overflow: hidden or large negative margins */
-  }
-
-  .hero-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 150px;
+    height: 150px;
   }
 
   .hero h1 {
@@ -1998,7 +2012,7 @@ body {
   }
   .mobile-menu-toggle {
     right: 2rem;
-    top: 1.5rem;
+    top: 1.2rem;
     position: fixed;
     z-index: 1003;
   }
@@ -2023,8 +2037,12 @@ body {
   }
 
   .section-title {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+    font-size: clamp(1.2rem, 6vw, 1.8rem);
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
   }
 
   .main-hobby-card {
@@ -2047,6 +2065,25 @@ body {
 
   .contact-item {
     padding: 1.5rem;
+  }
+
+  .bento-grid,
+  .projects-grid,
+  .facts-grid,
+  .achievements-grid,
+  .subjects-grid,
+  .philosophy-cards,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+  .main-hobby-card,
+  .hobby-card,
+  .project-card,
+  .achievement-card,
+  .subject-card {
+    padding: 1rem;
+    border-radius: 12px;
   }
 }
 
