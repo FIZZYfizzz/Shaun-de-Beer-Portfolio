@@ -59,35 +59,6 @@ portfolio/
 │   └── Shaun de Beer CV - 2025.pdf  # Downloadable CV
 └── README.md              # This file
 
-🚀 Getting Started
-
-Prerequisites
-Modern web browser (Chrome, Firefox, Safari, Edge)
-Local web server (optional, for development)
-
-Installation
-Clone the repository
-      git clone https://github.com/shaundebeer/portfolio.git
-   cd portfolio
-
-Open locally
-Option 1: Direct file access
-   open index.html
-
-Option 2: Local server (recommended)
-   python -m http.server 8000
-Then visit http://localhost:8000
-
-Option 3: Live Server (VS Code extension)
-Right-click index.html -> "Open with Live Server"
-
-Deployment
-The site is ready for deployment on any static hosting service:
-GitHub Pages - Automatic deployment from main branch
-Netlify - Drag and drop deployment
-Vercel - Git integration deployment
-Any web server - Upload files to public directory
-
 💡 Usage Guide
 
 Navigation
