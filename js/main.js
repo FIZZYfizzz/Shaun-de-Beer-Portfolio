@@ -1,5 +1,7 @@
 // Page Management - Define FIRST to ensure it's available for onclick handlers
-function showPage(pageId) {
+function showPage(pageId, syncHash = true) {
+  if (!document.getElementById(pageId + "-page")) return;
+  if (syncHash && location.hash !== "#" + pageId) history.pushState(null, "", "#" + pageId);
   console.log("Attempting to show page:", pageId); // Debug log
 
   // Hide all pages
@@ -28,12 +30,13 @@ function showPage(pageId) {
 
   // Add active class to corresponding nav link
   const activeLink = document.querySelector(
-    `[onclick*="showPage('${pageId}')"]`
+    `.nav-link[onclick*="showPage('${pageId}')"]`
   );
   if (activeLink) {
     activeLink.classList.add("active");
   }
 
+  document.querySelectorAll(".nav-link").forEach(link => { if(link.classList.contains("active")) link.setAttribute("aria-current","page"); else link.removeAttribute("aria-current"); });
   // Scroll to top
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -73,7 +76,7 @@ function showYear(year) {
   }
 
   // Add active class to clicked tab
-  event.target.classList.add("active");
+  document.querySelector(`.year-tab[onclick*="${year}"]`)?.classList.add("active");
 }
 
 // Make functions globally available
@@ -98,7 +101,7 @@ function showHobbyCategory(category) {
   }
 
   // Add active class to clicked tab
-  event.target.classList.add("active");
+  document.querySelector(`.category-tab[onclick*="${category}"]`)?.classList.add("active");
 }
 
 // Make functions globally available
@@ -243,7 +246,7 @@ class ParticleSystem {
 
 // Initialize particle system
 const canvas = document.getElementById("particle-canvas");
-if (canvas) {
+if (canvas && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   new ParticleSystem(canvas);
 }
 
@@ -254,6 +257,7 @@ if (savedTheme === "light") {
   const button = document.querySelector(".theme-toggle");
   if (button) button.textContent = "☀ Light";
 } else if (
+  savedTheme !== "dark" &&
   window.matchMedia &&
   window.matchMedia("(prefers-color-scheme: light)").matches
 ) {
@@ -302,9 +306,9 @@ function showTerminal() {
     "System initialization complete...",
     "Loading developer profile...",
     "> Skills: [C#, Java, Python, JavaScript, IoT, Machine Learning]",
-    "> Status: Available for hire",
-    "> Location: Pretoria, South Africa",
-    "> Specialization: Full-Stack Development & IoT Solutions",
+    "> Status: Intern SAP Consultant at EPI-USE Africa",
+    "> Location: Centurion, Pretoria, South Africa",
+    "> Work: SAP application development, integration and migration projects",
     "> Hobbies: Wall Art, Nature Photography, Gaming, Continuous Learning",
     "",
     "Fun fact: This terminal was activated by the Konami Code!",
@@ -377,17 +381,17 @@ function processCommand(command) {
     case "help":
       return "Available commands:<br>• help - Show this help<br>• contact - Show contact information<br>• projects - List my projects<br>• skills - Show technical skills<br>• about - About me<br>• education - Academic journey<br>• hobbies - Personal interests & hobbies<br>• clear - Clear terminal<br>• home - Go to home page<br>• page [name] - Navigate to page";
     case "contact":
-      return "Contact Information:<br>📧 debeershaun18@gmail.com<br>📱 +27 82 050 5674<br>💼 linkedin.com/in/shaundebeer<br>📍 Akasia, Pretoria, South Africa";
+      return "Contact Information:<br>📧 debeershaun18@gmail.com<br>📱 +27 82 050 5674<br>💼 linkedin.com/in/shaundebeer<br>📍 Centurion, Pretoria, South Africa";
     case "projects":
-      return "Featured Projects:<br>🔧 IoT Generator Monitoring System<br>⚡ MQ-2 Gas Sensor Alert Circuit<br>📊 C# Student Wellness Management System<br>🌐 Web-Based Login & Registration System<br>🎨 Wall Art & Custom Design Projects";
+      return "SAP Projects:<br>SAP HCM to SuccessFactors mapping<br>SAP-AI MCP prototype<br>SAPUI5 customer and orders application<br>SAP Cloud Integration employee-data flow<br>ABAP enhancement scanner";
     case "skills":
-      return "Technical Skills:<br>💻 Languages: C#, Java, Python, JavaScript<br>🗄️ Database: SQL & Database Management<br>🌐 Web: HTML, CSS, JavaScript, JSP/Servlets<br>📊 Project Management: Agile, Scrum<br>🔧 Tools: Git/GitHub, Visual Studio<br>🤖 IoT: MQTT, Sensor Integration, Arduino";
+      return "Technical Skills:<br>SAP: ABAP, SAPUI5, SAP Cloud Integration, data mapping<br>Certified areas: Fiori, Integration Development, CAP<br>Academic foundation: C#, Java, Python, JavaScript, SQL<br>Tools: Git/GitHub";
     case "about":
-      return "About Shaun de Beer:<br>🎓 Bachelor of Computing student (Belgium Campus ITversity)<br>⭐ 72% Weighted Average - 268 credits achieved<br>🏆 24 Distinctions earned<br>🚀 Passionate about full-stack development and IoT<br>🎯 Goal: Drive digital transformation at forward-thinking companies";
+      return "Shaun de Beer — Intern SAP Consultant at EPI-USE Africa.<br>Fourth-year Bachelor of Computing student.<br>360 credits; 74.1% weighted average.<br>Based in Centurion, Pretoria.";
     case "education":
-      return "Academic Journey:<br>🎓 Bachelor of Computing - Belgium Campus ITversity<br>📈 72% Weighted Average<br>📚 268 Credits Achieved<br>🏆 24 Distinctions<br>🔬 Currently: Machine Learning & Advanced Development";
+      return "Academic Journey:<br>🎓 Bachelor of Computing - Belgium Campus ITversity<br>📈 74.1% Weighted Average<br>📚 360 Credits Achieved<br>🏆 28 Distinctions<br>🔬 Applied Information Technology 481 completed; results pending";
     case "hobbies":
-      return "Hobbies & Interests:<br>🎨 Wall Art & Custom Designs (4+ years experience)<br>📸 Nature Photography & Cycling (50+ trails explored)<br>🎮 Gaming & Hardware Building (3 PC builds)<br>📚 Continuous Learning & Philosophy<br>🌟 Philosophy: Growth through challenge, passion drives excellence";
+      return "Art, nature photography, cycling, gaming, hardware and reading.";
     case "home":
       showPage("home");
       return "Navigating to home page...";
@@ -408,6 +412,7 @@ function processCommand(command) {
             "education",
             "hobbies",
             "projects",
+            "certifications",
             "contact",
           ].includes(pageName)
         ) {
@@ -565,13 +570,13 @@ window.addEventListener("load", () => {
   );
 
   // Ensure home page is visible by default
-  showPage("home");
+  showPage(document.getElementById(location.hash.slice(1) + "-page") ? location.hash.slice(1) : "home", false);
 
   // Initialize other features
   const subtitle = document.querySelector(".hero .subtitle");
   if (subtitle) {
     const originalText = subtitle.textContent;
-    typeWriter(subtitle, originalText, 80);
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) typeWriter(subtitle, originalText, 45);
   }
 
   initializeEducationPage();
@@ -766,3 +771,8 @@ if ("performance" in window) {
     }, 0);
   });
 }
+
+window.addEventListener('popstate',()=>showPage(location.hash.slice(1)||'home',false));
+function syncMenuState(){document.querySelector('.mobile-menu-toggle')?.setAttribute('aria-expanded',String(document.getElementById('nav-links').classList.contains('mobile-open')))}
+new MutationObserver(syncMenuState).observe(document.getElementById('nav-links'),{attributes:true,attributeFilter:['class']});
+document.querySelectorAll('.fact-card').forEach(card=>{card.tabIndex=0;card.setAttribute('role','button');card.setAttribute('aria-label',card.querySelector('h4')?.textContent+' — flip card');card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();rotateFact(card)}})});

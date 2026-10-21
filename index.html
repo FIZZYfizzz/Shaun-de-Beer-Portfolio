@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shaun de Beer | Portfolio</title>
+    <title>Shaun de Beer | Intern SAP Consultant</title><meta name="description" content="Shaun de Beer, Intern SAP Consultant at EPI-USE Africa. SAP projects, certifications and development experience.">
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <canvas id="particle-canvas"></canvas>
 
     <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" onclick="toggleMobileMenu()">
       <span></span>
       <span></span>
       <span></span>
@@ -20,56 +20,7 @@
     <nav class="nav">
       <div class="nav-content">
         <div class="logo" onclick="showPage('home')">Shaun.portfolio</div>
-        <ul class="nav-links" id="nav-links">
-          <li>
-            <a
-              href="javascript:void(0)"
-              onclick="showPage('home'); closeMobileMenu();"
-              class="nav-link active"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="javascript:void(0)"
-              onclick="showPage('about'); closeMobileMenu();"
-              class="nav-link"
-              >About</a
-            >
-          </li>
-          <li>
-            <a
-              href="javascript:void(0)"
-              onclick="showPage('education'); closeMobileMenu();"
-              class="nav-link"
-              >Education</a
-            >
-          </li>
-          <li>
-            <a
-              href="javascript:void(0)"
-              onclick="showPage('projects'); closeMobileMenu();"
-              class="nav-link"
-              >Projects</a
-            >
-          </li>
-          <li>
-            <a
-              href="javascript:void(0)"
-              onclick="showPage('hobbies'); closeMobileMenu();"
-              class="nav-link"
-              >Hobbies</a
-            >
-          </li>
-          <li>
-            <a
-              href="javascript:void(0)"
-              onclick="showPage('contact'); closeMobileMenu();"
-              class="nav-link"
-              >Contact</a
-            >
-          </li>
-        </ul>
+        <ul class="nav-links" id="nav-links"><li><a href="#home" onclick="showPage('home'); closeMobileMenu(); return false;" class="nav-link active">Home</a></li><li><a href="#about" onclick="showPage('about'); closeMobileMenu(); return false;" class="nav-link">About</a></li><li><a href="#projects" onclick="showPage('projects'); closeMobileMenu(); return false;" class="nav-link">Projects</a></li><li><a href="#certifications" onclick="showPage('certifications'); closeMobileMenu(); return false;" class="nav-link">Certifications</a></li><li><a href="#education" onclick="showPage('education'); closeMobileMenu(); return false;" class="nav-link">Education</a></li><li><a href="#hobbies" onclick="showPage('hobbies'); closeMobileMenu(); return false;" class="nav-link">Hobbies</a></li><li><a href="#contact" onclick="showPage('contact'); closeMobileMenu(); return false;" class="nav-link">Contact</a></li></ul>
         <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
       </div>
     </nav>
@@ -81,20 +32,12 @@
           <div class="hero-image">
             <img
               src="assests/CV Photo.jpg"
-              alt="SD"
+              alt="Shaun de Beer"
             />
           </div>
           <h1>Shaun de Beer</h1>
-          <p class="subtitle">Bachelor of Computing | Software Engineering</p>
-          <p class="description">
-            A dedicated student with a consistent academic performance,
-            passionate about transforming theoretical knowledge into robust,
-            real-world solutions. Skilled in full-stack development and driven
-            by the challenges of machine learning, database architecture, and
-            scalable system design. Committed to leveraging technology not just
-            to solve problems, but to redefine possibilities. Where logic meets
-            creativity—building the future, one algorithm at a time.
-          </p>
+          <p class="subtitle">Intern SAP Consultant | EPI-USE Africa</p>
+          <p class="description">I’m an Intern SAP Consultant at EPI-USE Africa and a fourth-year Bachelor of Computing student. My work includes SAP application development, integrations, internal migration projects and an MCP prototype connecting SAP with an AI assistant.</p><p class="hero-location">Centurion, Pretoria, South Africa</p>
           <div class="cta-buttons">
             <button class="btn btn-primary" onclick="showPage('projects')">
               View My Work
@@ -108,152 +51,8 @@
     </div>
 
     <!-- About Page -->
-    <div id="about-page" class="page-container hidden">
-      <div class="content-container">
-        <h2 class="section-title">About Me</h2>
-
-        <div class="bento-grid">
-          <div class="bento-card">
-            <div class="bento-card-content">
-              <div class="card-icon"><ion-icon name="desktop"></ion-icon></div>
-              <h3 class="card-title">Full-Stack Development</h3>
-              <p class="card-description">
-                Passionate with a strong foundation in both frontend and backend
-                technologies. My expertise spans web development, database
-                management, and modern programming practices, allowing me to
-                build scalable and efficient applications.
-              </p>
-              <div class="skill-tags">
-                <span class="skill-tag">C#</span>
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">JavaScript</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bento-card">
-            <div class="bento-card-content">
-              <div class="card-icon"><ion-icon name="school"></ion-icon></div>
-              <h3 class="card-title">Academic Excellence</h3>
-              <p class="card-description">
-                Currently pursuing a Bachelor of Computing at Belgium Campus
-                ITversity. I have completed 268 credits with a weighted average
-                of 72%.
-              </p>
-              <div class="skill-tags">
-                <span class="skill-tag">Distinctions in 24 modules</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bento-card">
-            <div class="bento-card-content">
-              <div class="card-icon"><ion-icon name="build"></ion-icon></div>
-              <h3 class="card-title">Technical Skills</h3>
-              <p class="card-description">
-                Comprehensive skill set covering web development, database
-                management, and programming. Utilizing modern development
-                practices and tools.
-              </p>
-              <div class="skill-tags">
-                <span class="skill-tag">HTML/CSS</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">JSP/Servlets</span>
-                <span class="skill-tag">Git/GitHub</span>
-                <span class="skill-tag">Agile/Scrum</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bento-card">
-            <div class="bento-card-content">
-              <div class="card-icon">
-                <ion-icon name="color-palette"></ion-icon>
-              </div>
-              <h3 class="card-title">Creative Leadership</h3>
-              <p class="card-description">
-                Combines technical skills with creative problem-solving,
-                demonstrated through Innovation and Leadership courses and
-                freelance projects. Organized events and delivered custom
-                designs for clients.
-              </p>
-              <div class="skill-tags">
-                <span class="skill-tag">Visual Design</span>
-                <span class="skill-tag">Customer Service</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bento-card">
-            <div class="bento-card-content">
-              <div class="card-icon"><ion-icon name="globe"></ion-icon></div>
-              <h3 class="card-title">Languages</h3>
-              <p class="card-description">
-                Multilingual communication skills enabling effective
-                collaboration in diverse environments.
-              </p>
-              <div class="skill-tags">
-                <span class="skill-tag">English (Fluent)</span>
-                <span class="skill-tag">Afrikaans (Fluent)</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bento-card">
-            <div class="bento-card-content">
-              <div class="card-icon"><ion-icon name="ribbon"></ion-icon></div>
-              <h3 class="card-title">Core Competencies</h3>
-              <p class="card-description">
-                Strong foundation in problem-solving, team collaboration, and
-                continuous learning mindset.
-              </p>
-              <div class="skill-tags">
-                <span class="skill-tag">Problem Solving</span>
-                <span class="skill-tag">Team Collaboration</span>
-                <span class="skill-tag">Critical Thinking</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="section-title" style="font-size: 2rem; margin-bottom: 2rem">
-          My Journey
-        </h3>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-date">2022 - 2026</div>
-            <div class="timeline-title">Bachelor of Computing</div>
-            <div class="timeline-location">
-              Belgium Campus ITversity - Pretoria
-            </div>
-            <div class="timeline-description">
-              Currently pursuing my degree and on track to graduate in 2026.
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">2025</div>
-            <div class="timeline-title">IoT Predictive Maintenance System</div>
-            <div class="timeline-location">Belgium Campus Year Project</div>
-            <div class="timeline-description">
-              Developing a comprehensive IoT system for generator monitoring
-              using MQTT, sensor data, and machine learning models.
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">2024</div>
-            <div class="timeline-title">Family Business Support</div>
-            <div class="timeline-location">Lodge Launch Project</div>
-            <div class="timeline-description">
-              Contributed to successful lodge launch through marketing strategy
-              development and customer service optimization.
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">2017 - 2024</div>
+    <div id="about-page" class="page-container hidden"><div class="content-container"><h2 class="section-title">About Me</h2><div class="bento-grid"><div class="bento-card"><div class="bento-card-content"><div class="card-icon"><ion-icon name="briefcase"></ion-icon></div><h3 class="card-title">Intern SAP Consultant</h3><p class="card-description">At EPI-USE Africa since 5 January 2026. Working on internal development, integration and training projects.</p><div class="skill-tags"><span class="skill-tag">ABAP</span><span class="skill-tag">SAPUI5</span><span class="skill-tag">SAP Cloud Integration</span></div></div></div><div class="bento-card"><div class="bento-card-content"><div class="card-icon"><ion-icon name="ribbon"></ion-icon></div><h3 class="card-title">SAP Certifications</h3><p class="card-description">Four SAP certifications covering Fiori application development, integration development, SAP Cloud Application Programming Model and ABAP Cloud.</p><div class="skill-tags"><span class="skill-tag">Fiori</span><span class="skill-tag">Integration</span><span class="skill-tag">CAP</span><span class="skill-tag">ABAP Cloud</span></div></div></div><div class="bento-card"><div class="bento-card-content"><div class="card-icon"><ion-icon name="school"></ion-icon></div><h3 class="card-title">Bachelor of Computing</h3><p class="card-description">Fourth-year student at Belgium Campus ITversity. 360 credits achieved with a recorded weighted average of 74.1%.</p><div class="skill-tags"><span class="skill-tag">Fourth Year</span><span class="skill-tag">Results Pending: AIT481</span></div></div></div><div class="bento-card"><div class="bento-card-content"><div class="card-icon"><ion-icon name="code-slash"></ion-icon></div><h3 class="card-title">Programming Foundation</h3><p class="card-description">Academic experience in programming, web development and databases, alongside practical SAP development.</p><div class="skill-tags"><span class="skill-tag">C#</span><span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">SQL</span><span class="skill-tag">Git/GitHub</span></div></div></div><div class="bento-card"><div class="bento-card-content"><div class="card-icon"><ion-icon name="color-palette"></ion-icon></div><h3 class="card-title">Beyond Development</h3><p class="card-description">I enjoy creative projects, art and building software of my own. English and Afrikaans are my fluent languages.</p><div class="skill-tags"><span class="skill-tag">Art & Design</span><span class="skill-tag">English</span><span class="skill-tag">Afrikaans</span></div></div></div></div><h3 class="section-title" style="font-size:2rem">My Journey</h3><div class="timeline"><div class="timeline-item"><div class="timeline-date">January 2026 – Present</div><div class="timeline-title">Intern SAP Consultant</div><div class="timeline-location">EPI-USE Africa</div><div class="timeline-description">Internal SAP development, integration training and migration work.</div></div><div class="timeline-item"><div class="timeline-date">2022–2026 · In progress</div><div class="timeline-title">Bachelor of Computing</div><div class="timeline-location">Belgium Campus ITversity</div><div class="timeline-description">Applied Information Technology 481 completed; results pending.</div></div><div class="timeline-item">
+            <div class="timeline-date">2017–2022</div>
             <div class="timeline-title">
               Event Coordinator & Freelance Artist
             </div>
@@ -263,9 +62,7 @@
               3 schools and 1 restaurant, developing project management and
               creative skills.
             </div>
-          </div>
-
-          <div class="timeline-item">
+          </div><div class="timeline-item">
             <div class="timeline-date">2017 - 2021</div>
             <div class="timeline-title">High School Diploma</div>
             <div class="timeline-location">
@@ -276,593 +73,11 @@
               mathematics and science subjects, laying the foundation for my
               technical career.
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </div></div></div></div>
 
+<div id="certifications-page" class="page-container hidden"><div class="content-container"><h2 class="section-title">SAP Certifications</h2><p class="section-intro">Four completed certifications. The topics below reflect certification coverage; practical experience is described in Projects.</p><div class="bento-grid"><div class="bento-card"><div class="bento-card-content"><div class="card-icon"><ion-icon name="ribbon"></ion-icon></div><h3 class="card-title">SAP Fiori Application Developer</h3><p class="card-description">SAP Certified · 9 April 2026</p><div class="skill-tags"><span class="skill-tag">SAP Fiori Foundation</span><span class="skill-tag">OData and Advanced Data Handling</span></div></div></div><div class="bento-card"><div class="bento-card-content"><div class="card-icon"><ion-icon name="ribbon"></ion-icon></div><h3 class="card-title">Integration Developer</h3><p class="card-description">SAP Certified · 1 July 2026</p><div class="skill-tags"><span class="skill-tag">API Management</span><span class="skill-tag">Cloud Application Development</span><span class="skill-tag">Integration Platforms</span></div></div></div><div class="bento-card"><div class="bento-card-content"><div class="card-icon"><ion-icon name="ribbon"></ion-icon></div><h3 class="card-title">Backend Developer – SAP Cloud Application Programming Model</h3><p class="card-description">SAP Certified · 17 August 2026</p><div class="skill-tags"><span class="skill-tag">Application Development</span><span class="skill-tag">Application Security</span><span class="skill-tag">Continuous Delivery</span></div></div></div><div class="bento-card"><div class="bento-card-content"><div class="card-icon"><ion-icon name="ribbon"></ion-icon></div><h3 class="card-title">Back-End Developer – ABAP Cloud</h3><p class="card-description">SAP Certified · 21 October 2026</p><div class="skill-tags"><span class="skill-tag">Advanced Business Application Programming (ABAP)</span><span class="skill-tag">Object-Oriented Design</span><span class="skill-tag">SQL (Programming Language)</span></div></div></div></div></div></div>
     <!-- Education Page -->
-    <div id="education-page" class="page-container hidden">
-      <div class="content-container">
-        <h2 class="section-title">Academic Journey</h2>
-
-        <!-- Education Header -->
-        <div class="education-header">
-          <h3 class="degree-title">Bachelor of Computing</h3>
-          <p class="institution">
-            Belgium Campus ITversity - Pretoria, South Africa
-          </p>
-          <p class="degree-period">2023 - 2026 (Expected)</p>
-          <p style="color: var(--text-secondary); margin-bottom: 2rem">
-            Student ID: 601245 | Registration: 2003/HE08/001
-          </p>
-
-          <div class="degree-stats">
-            <div class="stat-card">
-              <span class="stat-number">72%</span>
-              <span class="stat-label">Weighted Average</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-number">268</span>
-              <span class="stat-label">Credits Achieved</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-number">31</span>
-              <span class="stat-label">Subjects Passed</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-number">24</span>
-              <span class="stat-label">Distinctions</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Academic Progress -->
-        <div class="academic-progress">
-          <div class="progress-header">
-            <h3 class="progress-subtitle">Academic Progress by Year</h3>
-            <p style="color: var(--text-secondary)">
-              Click on a year to view detailed coursework and achievements
-            </p>
-          </div>
-
-          <div class="year-tabs">
-            <button class="year-tab active" onclick="showYear('2023')">
-              2023
-            </button>
-            <button class="year-tab" onclick="showYear('2024')">2024</button>
-            <button class="year-tab" onclick="showYear('2025')">2025</button>
-          </div>
-
-          <!-- 2023 Content -->
-          <div id="year-2023" class="year-content active">
-            <div class="subjects-grid">
-              <div class="subject-card">
-                <div class="subject-code">ACW181</div>
-                <div class="subject-header">
-                  <div class="subject-name">Academic Writing 181</div>
-                  <div class="subject-mark">76</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">4 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">COA181</div>
-                <div class="subject-header">
-                  <div class="subject-name">Computer Architecture 181</div>
-                  <div class="subject-mark">88</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">4 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">DBD181</div>
-                <div class="subject-header">
-                  <div class="subject-name">Database Development 181</div>
-                  <div class="subject-mark">60</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">12 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">ENT181</div>
-                <div class="subject-header">
-                  <div class="subject-name">Entrepreneurship 181</div>
-                  <div class="subject-mark">86</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">7 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">INF181</div>
-                <div class="subject-header">
-                  <div class="subject-name">Information Systems 181</div>
-                  <div class="subject-mark">60</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">12 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">INL101</div>
-                <div class="subject-header">
-                  <div class="subject-name">Innovation and Leadership 101</div>
-                  <div class="subject-mark">81</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">5 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">INL102</div>
-                <div class="subject-header">
-                  <div class="subject-name">Innovation and Leadership 102</div>
-                  <div class="subject-mark">81</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">5 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">LPR181</div>
-                <div class="subject-header">
-                  <div class="subject-name">Linear Programming 181</div>
-                  <div class="subject-mark">74</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">11 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">MAT181</div>
-                <div class="subject-header">
-                  <div class="subject-name">Mathematics 181</div>
-                  <div class="subject-mark">80</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">11 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">NWD181</div>
-                <div class="subject-header">
-                  <div class="subject-name">Network Development 181</div>
-                  <div class="subject-mark">81</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">8 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">PRG181</div>
-                <div class="subject-header">
-                  <div class="subject-name">Programming 181</div>
-                  <div class="subject-mark">87</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">16 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">PRG182</div>
-                <div class="subject-header">
-                  <div class="subject-name">Programming 182</div>
-                  <div class="subject-mark">76</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">9 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">STA181</div>
-                <div class="subject-header">
-                  <div class="subject-name">Statistics 181</div>
-                  <div class="subject-mark">77</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">4 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">WPR181</div>
-                <div class="subject-header">
-                  <div class="subject-name">Web Programming 181</div>
-                  <div class="subject-mark">71</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">12 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="year-summary">
-              <h4 class="summary-title">2023 Academic Summary</h4>
-              <div class="summary-stats">
-                <div class="summary-stat">
-                  <div class="summary-stat-value">14</div>
-                  <div class="summary-stat-label">Subjects</div>
-                </div>
-                <div class="summary-stat">
-                  <div class="summary-stat-value">118</div>
-                  <div class="summary-stat-label">Credits</div>
-                </div>
-                <div class="summary-stat">
-                  <div class="summary-stat-value">76.4%</div>
-                  <div class="summary-stat-label">Average</div>
-                </div>
-                <div class="summary-stat">
-                  <div class="summary-stat-value">100%</div>
-                  <div class="summary-stat-label">Pass Rate</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2024 Content -->
-          <div id="year-2024" class="year-content">
-            <div class="subjects-grid">
-              <div class="subject-card">
-                <div class="subject-code">DBD281</div>
-                <div class="subject-header">
-                  <div class="subject-name">Database Development 281</div>
-                  <div class="subject-mark">85</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">15 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">INF281</div>
-                <div class="subject-header">
-                  <div class="subject-name">Information Systems 281</div>
-                  <div class="subject-mark">80</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">12 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">INL201</div>
-                <div class="subject-header">
-                  <div class="subject-name">Innovation and Leadership 201</div>
-                  <div class="subject-mark">72</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">5 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">INL202</div>
-                <div class="subject-header">
-                  <div class="subject-name">Innovation and Leadership 202</div>
-                  <div class="subject-mark">72</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">5 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">IOT281</div>
-                <div class="subject-header">
-                  <div class="subject-name">Internet of Things 281</div>
-                  <div class="subject-mark">63</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">8 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">LPR281</div>
-                <div class="subject-header">
-                  <div class="subject-name">Linear Programming 281</div>
-                  <div class="subject-mark">59</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">11 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">MAT281</div>
-                <div class="subject-header">
-                  <div class="subject-name">Mathematics 281</div>
-                  <div class="subject-mark">78</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">11 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">PMM281</div>
-                <div class="subject-header">
-                  <div class="subject-name">Project Management 281</div>
-                  <div class="subject-mark">80</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">7 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">PRG281</div>
-                <div class="subject-header">
-                  <div class="subject-name">Programming 281</div>
-                  <div class="subject-mark">82</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">13 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">PRG282</div>
-                <div class="subject-header">
-                  <div class="subject-name">Programming 282</div>
-                  <div class="subject-mark">65</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">8 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">SAD281</div>
-                <div class="subject-header">
-                  <div class="subject-name">Software Analysis & Design 281</div>
-                  <div class="subject-mark">71</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">9 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">STA281</div>
-                <div class="subject-header">
-                  <div class="subject-name">Statistics 281</div>
-                  <div class="subject-mark">82</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">4 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">WPR281</div>
-                <div class="subject-header">
-                  <div class="subject-name">Web Programming 281</div>
-                  <div class="subject-mark">77</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">12 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="year-summary">
-              <h4 class="summary-title">2024 Academic Summary</h4>
-              <div class="summary-stats">
-                <div class="summary-stat">
-                  <div class="summary-stat-value">13</div>
-                  <div class="summary-stat-label">Subjects</div>
-                </div>
-                <div class="summary-stat">
-                  <div class="summary-stat-value">122</div>
-                  <div class="summary-stat-label">Credits</div>
-                </div>
-                <div class="summary-stat">
-                  <div class="summary-stat-value">73.8%</div>
-                  <div class="summary-stat-label">Average</div>
-                </div>
-                <div class="summary-stat">
-                  <div class="summary-stat-value">100%</div>
-                  <div class="summary-stat-label">Pass Rate</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2025 Content -->
-          <div id="year-2025" class="year-content">
-            <div class="subjects-grid">
-              <div class="subject-card">
-                <div class="subject-code">DBD381</div>
-                <div class="subject-header">
-                  <div class="subject-name">Database Development 381</div>
-                  <div class="subject-mark">74</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">7 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">MLG381</div>
-                <div class="subject-header">
-                  <div class="subject-name">Machine Learning 381</div>
-                  <div class="subject-mark">59</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">7 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-             <div class="subject-card">
-                <div class="subject-code">MLG382</div>
-                <div class="subject-header">
-                  <div class="subject-name">Machine Learning 382</div>
-                  <div class="subject-mark">75</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">11 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">PMM381</div>
-                <div class="subject-header">
-                  <div class="subject-name">Project Management 381</div>
-                  <div class="subject-mark">82</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">7 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">RSH381</div>
-                <div class="subject-header">
-                  <div class="subject-name">Research Methods 381</div>
-                  <div class="subject-mark">64</div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">7 Credits</div>
-                  <div class="subject-status status-pass">Pass</div>
-                </div>
-              </div>
-
-              <div class="subject-card">
-                <div class="subject-code">WPR381</div>
-                <div class="subject-header">
-                  <div class="subject-name">Web Programming 381</div>
-                  <div class="subject-mark"></div>
-                </div>
-                <div class="subject-details">
-                  <div class="subject-credits">9 Credits</div>
-                  <div class="subject-status status-pending">Pending</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="year-summary">
-              <h4 class="summary-title">2025 Academic Summary (Current)</h4>
-              <div class="summary-stats">
-                <div class="summary-stat">
-                  <div class="summary-stat-value">6</div>
-                  <div class="summary-stat-label">Subjects</div>
-                </div>
-                <div class="summary-stat">
-                  <div class="summary-stat-value">48</div>
-                  <div class="summary-stat-label">Credits</div>
-                </div>
-                <div class="summary-stat">
-                  <div class="summary-stat-value">72%</div>
-                  <div class="summary-stat-label">Current Avg</div>
-                </div>
-                <div class="summary-stat">
-                  <div class="summary-stat-value">2</div>
-                  <div class="summary-stat-label">Pending</div>
-                </div>
-              </div>
-              <p
-                style="
-                  color: var(--text-secondary);
-                  margin-top: 1rem;
-                  text-align: center;
-                  font-style: italic;
-                "
-              >
-                Note: Current marks represent ongoing coursework. Final grades
-                pending completion of exams and assignments.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Achievements Section -->
-        <div class="achievements-section">
-          <h3 class="achievements-title">Academic Achievements</h3>
-          <div class="achievements-grid">
-            <div class="achievement-card">
-              <div class="achievement-icon">
-                <ion-icon name="trophy"></ion-icon>
-              </div>
-              <div class="achievement-title">24 Distinctions</div>
-              <div class="achievement-description">
-                Achieved distinction level (75%+) in 24 subjects, demonstrating
-                consistent excellence
-              </div>
-            </div>
-
-            <div class="achievement-card">
-              <div class="achievement-icon">
-                <ion-icon name="trending-up"></ion-icon>
-              </div>
-              <div class="achievement-title">268 Credits Earned</div>
-              <div class="achievement-description">
-                Successfully completed 268 credits across diverse computing
-                disciplines
-              </div>
-            </div>
-
-            <div class="achievement-card">
-              <div class="achievement-icon">
-                <ion-icon name="locate"></ion-icon>
-              </div>
-              <div class="achievement-title">Perfect Pass Rate</div>
-              <div class="achievement-description">
-                100% pass rate with no failed subjects across all completed
-                coursework
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="education-page" class="page-container hidden"><div class="content-container"><h2 class="section-title">Education</h2><div class="education-header"><h3 class="degree-title">Bachelor of Computing</h3><p class="institution">Belgium Campus ITversity · Pretoria</p><p class="degree-period">Fourth year · In progress</p><div class="degree-stats"><div class="stat-card"><span class="stat-number">74.1%</span><span class="stat-label">Weighted Average</span></div><div class="stat-card"><span class="stat-number">360</span><span class="stat-label">Credits Achieved</span></div><div class="stat-card"><span class="stat-number">38</span><span class="stat-label">Subjects Passed</span></div></div><p class="update-note">Applied Information Technology 481 completed; results pending.</p></div><details class="academic-disclosure"><summary>View detailed module results</summary><p class="update-note">Recorded results as at 20 October 2026. Pending fourth-year results are excluded.</p><div class="academic-progress"><div class="year-tabs"><button class="year-tab" onclick="showYear('2023')">2023</button><button class="year-tab" onclick="showYear('2024')">2024</button><button class="year-tab active" onclick="showYear('2025')">2025</button></div><div id="year-2023" class="year-content"><div class="subjects-grid"><div class="subject-card"><div class="subject-code">ACW181</div><div class="subject-header"><div class="subject-name">Academic Writing 181</div><div class="subject-mark">76%</div></div><div class="subject-details"><div class="subject-credits">4 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">COA181</div><div class="subject-header"><div class="subject-name">Computer Architecture 181</div><div class="subject-mark">88%</div></div><div class="subject-details"><div class="subject-credits">4 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">DBD181</div><div class="subject-header"><div class="subject-name">Database Development 181</div><div class="subject-mark">60%</div></div><div class="subject-details"><div class="subject-credits">12 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">ENT181</div><div class="subject-header"><div class="subject-name">Entrepreneurship 181</div><div class="subject-mark">86%</div></div><div class="subject-details"><div class="subject-credits">7 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">INF181</div><div class="subject-header"><div class="subject-name">Information Systems 181</div><div class="subject-mark">60%</div></div><div class="subject-details"><div class="subject-credits">12 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">INL101</div><div class="subject-header"><div class="subject-name">Innovation and Leadership 101</div><div class="subject-mark">81%</div></div><div class="subject-details"><div class="subject-credits">5 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">INL102</div><div class="subject-header"><div class="subject-name">Innovation and Leadership 102</div><div class="subject-mark">81%</div></div><div class="subject-details"><div class="subject-credits">5 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">LPR181</div><div class="subject-header"><div class="subject-name">Linear Programming 181</div><div class="subject-mark">74%</div></div><div class="subject-details"><div class="subject-credits">11 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">MAT181</div><div class="subject-header"><div class="subject-name">Mathematics 181</div><div class="subject-mark">80%</div></div><div class="subject-details"><div class="subject-credits">11 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">NWD181</div><div class="subject-header"><div class="subject-name">Network Development 181</div><div class="subject-mark">81%</div></div><div class="subject-details"><div class="subject-credits">8 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">PRG181</div><div class="subject-header"><div class="subject-name">Programming 181</div><div class="subject-mark">87%</div></div><div class="subject-details"><div class="subject-credits">16 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">PRG182</div><div class="subject-header"><div class="subject-name">Programming 182</div><div class="subject-mark">76%</div></div><div class="subject-details"><div class="subject-credits">9 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">STA181</div><div class="subject-header"><div class="subject-name">Statistics 181</div><div class="subject-mark">77%</div></div><div class="subject-details"><div class="subject-credits">4 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">WPR181</div><div class="subject-header"><div class="subject-name">Web Programming 181</div><div class="subject-mark">71%</div></div><div class="subject-details"><div class="subject-credits">12 Credits</div><div class="subject-status status-pass">Pass</div></div></div></div></div><div id="year-2024" class="year-content"><div class="subjects-grid"><div class="subject-card"><div class="subject-code">DBD281</div><div class="subject-header"><div class="subject-name">Database Development 281</div><div class="subject-mark">85%</div></div><div class="subject-details"><div class="subject-credits">15 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">INF281</div><div class="subject-header"><div class="subject-name">Information Systems 281</div><div class="subject-mark">80%</div></div><div class="subject-details"><div class="subject-credits">12 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">INL201</div><div class="subject-header"><div class="subject-name">Innovation and Leadership 201</div><div class="subject-mark">72%</div></div><div class="subject-details"><div class="subject-credits">5 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">INL202</div><div class="subject-header"><div class="subject-name">Innovation and Leadership 202</div><div class="subject-mark">72%</div></div><div class="subject-details"><div class="subject-credits">5 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">IOT281</div><div class="subject-header"><div class="subject-name">Internet of Things 281</div><div class="subject-mark">63%</div></div><div class="subject-details"><div class="subject-credits">8 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">LPR281</div><div class="subject-header"><div class="subject-name">Linear Programming 281</div><div class="subject-mark">59%</div></div><div class="subject-details"><div class="subject-credits">11 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">MAT281</div><div class="subject-header"><div class="subject-name">Mathematics 281</div><div class="subject-mark">78%</div></div><div class="subject-details"><div class="subject-credits">11 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">PMM281</div><div class="subject-header"><div class="subject-name">Project Management 281</div><div class="subject-mark">80%</div></div><div class="subject-details"><div class="subject-credits">7 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">PRG281</div><div class="subject-header"><div class="subject-name">Programming 281</div><div class="subject-mark">82%</div></div><div class="subject-details"><div class="subject-credits">13 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">PRG282</div><div class="subject-header"><div class="subject-name">Programming 282</div><div class="subject-mark">65%</div></div><div class="subject-details"><div class="subject-credits">8 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">SAD281</div><div class="subject-header"><div class="subject-name">Software Analysis &amp; Design 281</div><div class="subject-mark">71%</div></div><div class="subject-details"><div class="subject-credits">9 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">STA281</div><div class="subject-header"><div class="subject-name">Statistics 281</div><div class="subject-mark">82%</div></div><div class="subject-details"><div class="subject-credits">4 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">WPR281</div><div class="subject-header"><div class="subject-name">Web Programming 281</div><div class="subject-mark">77%</div></div><div class="subject-details"><div class="subject-credits">12 Credits</div><div class="subject-status status-pass">Pass</div></div></div></div></div><div id="year-2025" class="year-content active"><div class="subjects-grid"><div class="subject-card"><div class="subject-code">DBD381</div><div class="subject-header"><div class="subject-name">Database Development 381</div><div class="subject-mark">74%</div></div><div class="subject-details"><div class="subject-credits">7 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">INL381</div><div class="subject-header"><div class="subject-name">Innovation and Leadership 381</div><div class="subject-mark">87%</div></div><div class="subject-details"><div class="subject-credits">5 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">LPR381</div><div class="subject-header"><div class="subject-name">Linear Programming 381</div><div class="subject-mark">68%</div></div><div class="subject-details"><div class="subject-credits">11 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">MLG381</div><div class="subject-header"><div class="subject-name">Machine Learning 381</div><div class="subject-mark">59%</div></div><div class="subject-details"><div class="subject-credits">7 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">MLG382</div><div class="subject-header"><div class="subject-name">Machine Learning 382</div><div class="subject-mark">86%</div></div><div class="subject-details"><div class="subject-credits">11 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">PMM381</div><div class="subject-header"><div class="subject-name">Project Management 381</div><div class="subject-mark">82%</div></div><div class="subject-details"><div class="subject-credits">7 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">PRG381</div><div class="subject-header"><div class="subject-name">Programming 381</div><div class="subject-mark">68%</div></div><div class="subject-details"><div class="subject-credits">9 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">PRJ381</div><div class="subject-header"><div class="subject-name">Project 381</div><div class="subject-mark">88%</div></div><div class="subject-details"><div class="subject-credits">17 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">RSH381</div><div class="subject-header"><div class="subject-name">Research Methods 381</div><div class="subject-mark">63%</div></div><div class="subject-details"><div class="subject-credits">7 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">SEN381</div><div class="subject-header"><div class="subject-name">Software Engineering 381</div><div class="subject-mark">59%</div></div><div class="subject-details"><div class="subject-credits">30 Credits</div><div class="subject-status status-pass">Pass</div></div></div><div class="subject-card"><div class="subject-code">WPR381</div><div class="subject-header"><div class="subject-name">Web Programming 381</div><div class="subject-mark">72%</div></div><div class="subject-details"><div class="subject-credits">9 Credits</div><div class="subject-status status-pass">Pass</div></div></div></div></div></div></details></div></div>
 
     <!-- Hobbies & Interests Page -->
     <div id="hobbies-page" class="page-container hidden">
@@ -923,16 +138,7 @@
                     bringing spaces to life with hand-painted designs that
                     reflect each location's unique character.
                   </p>
-                  <div class="hobby-stats">
-                    <div class="stat">
-                      <span class="stat-number">4+</span>
-                      <span class="stat-label">Commissioned Projects</span>
-                    </div>
-                    <div class="stat">
-                      <span class="stat-number">4</span>
-                      <span class="stat-label">Years Experience</span>
-                    </div>
-                  </div>
+
                 </div>
               </div>
 
@@ -995,16 +201,7 @@
                     wildlife and scenic vistas while staying active through
                     cycling and outdoor adventures.
                   </p>
-                  <div class="hobby-stats">
-                    <div class="stat">
-                      <span class="stat-number">50+</span>
-                      <span class="stat-label">Trails Completed</span>
-                    </div>
-                    <div class="stat">
-                      <span class="stat-number">100+</span>
-                      <span class="stat-label">Photos Captured</span>
-                    </div>
-                  </div>
+
                 </div>
               </div>
 
@@ -1065,16 +262,7 @@
                     PC setups. Gaming feeds my competitive spirit and provides
                     relaxation after intense coding sessions.
                   </p>
-                  <div class="hobby-stats">
-                    <div class="stat">
-                      <span class="stat-number">3</span>
-                      <span class="stat-label">PC Builds</span>
-                    </div>
-                    <div class="stat">
-                      <span class="stat-number">10+</span>
-                      <span class="stat-label">Favorite Games</span>
-                    </div>
-                  </div>
+
                 </div>
               </div>
 
@@ -1137,18 +325,7 @@
                     the joy of reading while applying insights to both tech
                     projects and daily life.
                   </p>
-                  <div class="hobby-stats">
-                    <div class="stat">
-                      <span class="stat-number">Current Read</span>
-                      <span class="stat-label"
-                        >Letters from a Stoic - Seneca</span
-                      >
-                    </div>
-                    <div class="stat">
-                      <span class="stat-number">2+</span>
-                      <span class="stat-label">Online Courses</span>
-                    </div>
-                  </div>
+
                 </div>
               </div>
 
@@ -1191,111 +368,10 @@
         </div>
 
         <!-- Personal Philosophy Section -->
-        <div class="philosophy-section">
-          <h3 class="section-subtitle">Personal Philosophy</h3>
-          <div class="philosophy-cards">
-            <div class="philosophy-card">
-              <div class="philosophy-icon">
-                <ion-icon name="infinite"></ion-icon>
-              </div>
-              <h4>"Growth Through Challenge"</h4>
-              <p>
-                I believe the most meaningful growth comes from stepping outside
-                comfort zones. Whether it's tackling a complex coding problem or
-                exploring a new hiking trail, challenges shape us into better
-                versions of ourselves.
-              </p>
-            </div>
 
-            <div class="philosophy-card">
-              <div class="philosophy-icon">
-                <ion-icon name="heart"></ion-icon>
-              </div>
-              <h4>"Passion Drives Excellence"</h4>
-              <p>
-                True mastery emerges when passion meets dedication. My diverse
-                interests fuel creativity in programming, and artistic pursuits
-                enhance my problem-solving approach in technology.
-              </p>
-            </div>
-
-            <div class="philosophy-card">
-              <div class="philosophy-icon">
-                <ion-icon name="share-social"></ion-icon>
-              </div>
-              <h4>"Knowledge Multiplies When Shared"</h4>
-              <p>
-                From mentoring fellow students to creating art for community
-                spaces, I've learned that sharing knowledge and creativity
-                amplifies their impact and creates lasting positive change.
-              </p>
-            </div>
-          </div>
-        </div>
 
         <!-- Current Projects & Goals -->
-        <div class="current-goals-section">
-          <h3 class="section-subtitle">Current Adventures</h3>
-          <div class="goals-timeline">
-            <div class="goal-item">
-              <div class="goal-icon">
-                <ion-icon name="camera-outline"></ion-icon>
-              </div>
-              <div class="goal-content">
-                <h4>Wildlife Photography Series</h4>
-                <p>
-                  Currently working on a photo series documenting the wildlife
-                  around Pretoria and the greater Gauteng region.
-                </p>
-                <div class="goal-progress">
-                  <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%"></div>
-                  </div>
-                  <span>60% Complete</span>
-                </div>
-              </div>
-            </div>
 
-            <div class="goal-item">
-              <div class="goal-icon">
-                <ion-icon name="code-slash-outline"></ion-icon>
-              </div>
-              <div class="goal-content">
-                <h4>Personal Portfolio Evolution</h4>
-                <p>
-                  Continuously improving this portfolio with new features,
-                  animations, and showcasing latest projects.
-                </p>
-                <div class="goal-progress">
-                  <div class="progress-bar">
-                    <div class="progress-fill" style="width: 85%"></div>
-                  </div>
-                  <span>Ongoing</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="goal-item">
-              <div class="goal-icon">
-                <ion-icon name="fitness-outline"></ion-icon>
-              </div>
-              <div class="goal-content">
-                <h4>Limpopo Cycling Challenge</h4>
-                <p>
-                  Planning to complete several challenging cycling trails in the
-                  Limpopo area including Kremetart 175km solo before the end of
-                  2026.
-                </p>
-                <div class="goal-progress">
-                  <div class="progress-bar">
-                    <div class="progress-fill" style="width: 30%"></div>
-                  </div>
-                  <span>Planning & Training Phase</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <!-- Fun Facts -->
         <div class="fun-facts-section">
@@ -1308,7 +384,7 @@
               </div>
               <div class="fact-back">
                 <p>
-                  I've sampled over 20 unique South African teas, from the
+                  I enjoy South African teas, from the
                   earthy tones of Cederberg to the smooth vanilla notes of
                   Clanwilliam
                 </p>
@@ -1335,7 +411,7 @@
               </div>
               <div class="fact-back">
                 <p>
-                  I've witnessed 4 rocket launches via live stream and love to
+                  I enjoy watching rocket launches and love to
                   stargaze in a open field. I've also watched a meteor shower
                   back home on the farm.
                 </p>
@@ -1347,11 +423,7 @@
     </div>
 
     <!-- Projects Page - FIXED CLASS -->
-    <div id="projects-page" class="page-container hidden">
-      <div class="content-container">
-        <h2 class="section-title">Featured Projects</h2>
-
-        <div class="projects-grid">
+    <div id="projects-page" class="page-container hidden"><div class="content-container"><h2 class="section-title">Projects</h2><p class="section-intro">SAP work at EPI-USE Africa, including internal development, prototypes and training builds.</p><div class="projects-grid"><details class="project-card sap-project"><summary aria-label="Show project contribution"><div class="project-header"><p class="project-kind">Internal team project</p><h3 class="project-title">SAP HCM → SuccessFactors</h3><p class="project-description">Employee and organisational identity mapping for a migration to Employee Central.</p></div><div class="project-content"><div class="project-tech"><span class="tech-tag">ABAP</span><span class="tech-tag">SAP Connector Framework</span><span class="tech-tag">Data mapping</span></div></div><span class="project-expand" aria-hidden="true">+</span></summary><div class="project-reveal"><p>Implemented employee identity mapping and contributed organisational-object mapping, including migration-run configuration and versioned results. Extended payment-information processing and verified core and payment record creation for one employee in the test system.</p></div></details><details class="project-card sap-project"><summary aria-label="Show project contribution"><div class="project-header"><p class="project-kind">MCP prototype</p><h3 class="project-title">Connecting SAP and AI</h3><p class="project-description">Exploring how an AI assistant can interact with an SAP system through Model Context Protocol.</p></div><div class="project-content"><div class="project-tech"><span class="tech-tag">ABAP</span><span class="tech-tag">MCP</span><span class="tech-tag">Claude Desktop</span></div></div><span class="project-expand" aria-hidden="true">+</span></summary><div class="project-reveal"><p>Worked on an MCP prototype connecting Claude Desktop to a custom SAP endpoint. The project explored AI-assisted interaction with SAP.</p></div></details><details class="project-card sap-project"><summary aria-label="Show project contribution"><div class="project-header"><p class="project-kind">SAP Cloud Integration training</p><h3 class="project-title">Employee-data integration</h3><p class="project-description">An integration flow to extract, enrich and transform employee data.</p></div><div class="project-content"><div class="project-tech"><span class="tech-tag">SAP Cloud Integration</span><span class="tech-tag">Message mapping</span><span class="tech-tag">Groovy</span></div></div><span class="project-expand" aria-hidden="true">+</span></summary><div class="project-reveal"><p>Developed an employee-data integration flow using SuccessFactors data, message mapping and Groovy scripting.</p></div></details><details class="project-card sap-project"><summary aria-label="Show project contribution"><div class="project-header"><p class="project-kind">SAPUI5 training</p><h3 class="project-title">Customer and orders application</h3><p class="project-description">A customer-and-orders interface built around the Northwind OData service.</p></div><div class="project-content"><div class="project-tech"><span class="tech-tag">SAPUI5</span><span class="tech-tag">OData</span><span class="tech-tag">JavaScript</span></div></div><span class="project-expand" aria-hidden="true">+</span></summary><div class="project-reveal"><p>Developed a practice application with data binding, navigation and interface styling.</p></div></details><details class="project-card sap-project"><summary aria-label="Show project contribution"><div class="project-header"><p class="project-kind">Internal ABAP development</p><h3 class="project-title">SAP enhancement analysis</h3><p class="project-description">A consolidated view of SAP enhancements to support migration assessment.</p></div><div class="project-content"><div class="project-tech"><span class="tech-tag">ABAP</span><span class="tech-tag">ABAP Unit</span><span class="tech-tag">Enhancement analysis</span></div></div><span class="project-expand" aria-hidden="true">+</span></summary><div class="project-reveal"><p>Developed a read-only inventory and rule-based migration-assessment tool. Validated sandbox output with 31 passing automated tests.</p></div></details></div><details class="academic-disclosure"><summary>University projects</summary><div class="projects-grid">
           <!-- Project 1: IoT Generator Monitoring -->
           <div class="project-card">
             <div class="project-header">
@@ -1359,32 +431,19 @@
                 IoT Generator Monitoring & Predictive Maintenance
               </h3>
               <p class="project-description">
-                IoT-driven platform that predicts generator failures using real-time data and ML models to prevent costly breakdowns.
+                2025 university project combining generator sensor data, MQTT messaging and machine-learning approaches to monitoring and predictive maintenance.
               </p>
             </div>
             <div class="project-content">
               <div class="project-tech">
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">TensorFlow.js</span>
+
                 <span class="tech-tag">MQTT</span>
-                <span class="tech-tag">LSTM</span>
+
                 <span class="tech-tag">IoT Sensors</span>
               </div>
-              <div class="project-stats">
-                <div class="stat-item">
-                  <div class="stat-value">+90%</div>
-                  <div class="stat-label">Accuracy Goal</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-value">30%</div>
-                  <div class="stat-label">Reduced Downtime Goal</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-value">Real-time</div>
-                  <div class="stat-label">Monitoring</div>
-                </div>
-              </div>
+
             </div>
           </div>
 
@@ -1403,16 +462,7 @@
                 <span class="tech-tag">MQ-2 Sensor</span>
                 <span class="tech-tag">Circuit Design</span>
               </div>
-              <div class="project-stats">
-                <div class="stat-item">
-                  <div class="stat-value">Sub 2s</div>
-                  <div class="stat-label">Response Time</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-value">Live</div>
-                  <div class="stat-label">Feedback Display</div>
-                </div>
-              </div>
+
             </div>
           </div>
 
@@ -1420,7 +470,7 @@
           <div class="project-card">
             <div class="project-header">
               <h3 class="project-title">
-                C# Student Wellness Management System
+                Student Wellness Management System
               </h3>
               <p class="project-description">
                 Desktop app for managing appointments, counselors, and feedback using SQLite and MVC architecture.
@@ -1428,26 +478,13 @@
             </div>
             <div class="project-content">
               <div class="project-tech">
-                <span class="tech-tag">Java Swing</span>
-                <span class="tech-tag">C#</span>
+
+
                 <span class="tech-tag">SQLite</span>
                 <span class="tech-tag">MVC</span>
                 <span class="tech-tag">OOP</span>
               </div>
-              <div class="project-stats">
-                <div class="stat-item">
-                  <div class="stat-value">3</div>
-                  <div class="stat-label">Dashboard Areas</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-value">50+</div>
-                  <div class="stat-label">Records Managed</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-value">MVC</div>
-                  <div class="stat-label">Architecture</div>
-                </div>
-              </div>
+
             </div>
           </div>
 
@@ -1456,7 +493,7 @@
             <div class="project-header">
               <h3 class="project-title">Web-Based Login & Registration System</h3>
               <p class="project-description">
-                Secure JSP/Servlet-based user auth system with session handling and PostgreSQL backend.
+                JSP/Servlet-based user authentication project with session handling and PostgreSQL backend.
               </p>
             </div>
             <div class="project-content">
@@ -1467,30 +504,15 @@
                 <span class="tech-tag">PostgreSQL</span>
                 <span class="tech-tag">NetBeans</span>
               </div>
-              <div class="project-stats">
-                <div class="stat-item">
-                  <div class="stat-value">5s</div>
-                  <div class="stat-label">Login Speed</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-value">4</div>
-                  <div class="stat-label">Interfaces</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-value">Session Based</div>
-                  <div class="stat-label">Authentication</div>
-                </div>
-              </div>
+
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </div></details></div></div>
 
     <!-- Contact Page - FIXED CLASS -->
     <div id="contact-page" class="page-container hidden">
       <div class="content-container">
-        <h2 class="section-title">Let's Build Something Amazing</h2>
+        <h2 class="section-title">Let’s Connect</h2>
         <p
           style="
             color: var(--text-secondary);
@@ -1500,9 +522,7 @@
             text-align: center;
           "
         >
-          Ready to drive digital transformation? I'm passionate about creating
-          innovative solutions that make a real impact. Let's connect and
-          discuss your next project.
+          Get in touch to discuss my projects, experience or professional development.
         </p>
 
         <div class="contact-grid">
@@ -1513,7 +533,7 @@
           </div>
 
           <div class="contact-item">
-            <div class="contact-icon"><ion-icon name="mail"></ion-icon></ion-icon></div>
+            <div class="contact-icon"><ion-icon name="mail"></ion-icon></div>
             <div class="contact-label">Email</div>
             <div class="contact-value">
               <a href="mailto:debeershaun18@gmail.com"
@@ -1525,14 +545,14 @@
           <div class="contact-item">
             <div class="contact-icon"><ion-icon name="pin"></ion-icon></div>
             <div class="contact-label">Location</div>
-            <div class="contact-value">Akasia, Pretoria, South Africa</div>
+            <div class="contact-value">Centurion, Pretoria, South Africa</div>
           </div>
 
           <div class="contact-item">
             <div class="contact-icon"><ion-icon name="briefcase"></ion-icon></div>
             <div class="contact-label">LinkedIn</div>
             <div class="contact-value">
-              <a href="https://www.linkedin.com/in/shaundebeer" target="_blank"
+              <a href="https://www.linkedin.com/in/shaundebeer" target="_blank" rel="noopener"
                 >linkedin.com/in/shaundebeer</a
               >
             </div>
@@ -1541,19 +561,18 @@
 
         <div style="text-align: center; margin-top: 4rem">
           <h3 style="color: var(--text-primary); margin-bottom: 1rem">
-            Looking for a dedicated developer?
+            Want to know more about my work?
           </h3>
           <p style="color: var(--text-secondary); margin-bottom: 2rem">
-            I'm currently seeking opportunities to contribute to innovative
-            projects and grow with a forward-thinking team.
+            You can find a concise overview of my current experience in my CV.
           </p>
           <div class="cta-buttons">
             <a href="mailto:debeershaun18@gmail.com" class="btn btn-primary">
               Send Email
             </a>
             <a
-              href="assests/Shaun de Beer CV.pdf"
-              target="_blank"
+              href="assets/Shaun-de-Beer-CV-K2-v4.pdf"
+              target="_blank" rel="noopener"
               class="btn btn-secondary"
               download
             >
@@ -1589,5 +608,4 @@
     ></script>
     <script src="js/main.js"></script>
   </body>
-</html>"
-  
+</html>
